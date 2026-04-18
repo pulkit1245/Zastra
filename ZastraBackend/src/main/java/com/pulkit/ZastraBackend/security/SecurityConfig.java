@@ -1,0 +1,92 @@
+package com.pulkit.ZastraBackend.security;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+/**
+ * SecurityConfig – the rulebook for Spring Security.
+ *
+ * Think of it as a building's access control:
+ *  - Some doors are open to everyone (register, login, public portfolio).
+ *  - Other doors require a valid badge (JWT token).
+ *  - We use STATELESS sessions — no cookies, just tokens.
+ */
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
+public class SecurityConfig {
+
+    private final JwtAuthFilter jwtAuthFilter;
+    private final UserDetailsService userDetailsService;
+
+    /** Defines which routes are public and which need authentication. */
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            // Disable CSRF – not needed for stateless REST APIs
+            .csrf(AbstractHttpConfigurer::disable)
+
+            // Define route permissions
+            .authorizeHttpRequests(auth -> auth
+                // Public routes – anyone can access
+                .requestMatchers(
+                    "/api/v1/auth/**",           // register + login
+                    "/api/v1/portfolio/**",      // public portfolio pages
+                    "/actuator/**"               // health checks for DevOps
+                ).permitAll()
+                // Everything else needs a valid JWT
+                .anyRequest().authenticated()
+            )
+
+            // Stateless: don't store any session on the server
+            .sessionManagement(session ->
+                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
+            // Use our database-backed authentication
+            .authenticationProvider(authenticationProvider())
+
+            // Add our JWT filter BEFORE Spring's default username/password filter
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+
+    /** Wires our UserDetailsService + BCrypt password encoder together. */
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
+
+    /**
+     * BCrypt is the industry-standard way to hash passwords.
+     * It's slow on purpose — makes brute-force attacks impractical.
+     */
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    /** Used by AuthService to authenticate login credentials. */
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+            throws Exception {
+        return config.getAuthenticationManager();
+    }
+}
