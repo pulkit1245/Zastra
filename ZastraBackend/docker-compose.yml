@@ -1,0 +1,99 @@
+
+
+services:
+  # 1. PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: zastra-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: your_postgres_password  # Should match application.properties
+      POSTGRES_DB: devforge
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d devforge"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. Redis Cache (for session or pub/sub if needed later)
+  redis:
+    image: redis:7-alpine
+    container_name: zastra-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # 3. Zookeeper (Kafka requirement)
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zastra-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+
+  # 4. Kafka Event Broker
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: zastra-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  # 5. Python Scraper Service
+  python-api:
+    build:
+      context: ./APIS
+      dockerfile: Dockerfile
+    container_name: zastra-python-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+  # 6. Spring Boot Java Backend
+  java-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zastra-java-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      python-api:
+        condition: service_started
+      kafka:
+        condition: service_started
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/devforge
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=your_postgres_password
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - PYTHON_API_BASE_URL=http://python-api:8000  # Connects internally to python container
+
+volumes:
+  postgres_data:
+  redis_data:

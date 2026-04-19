@@ -31,6 +31,7 @@ public class PortfolioService {
         List<ProjectResponse> projects = projectService.getProjects(user.getId());
         GlobalStatsResponse globalStats = activityService.getGlobalStats(user.getId());
         GithubStatsResponse githubStats = activityService.getGithubStats(user.getId());
+        List<HeatmapEntry> heatmap = activityService.getHeatmap(user.getId());
         GamificationSummaryResponse gamificationSummary = gamificationService.getGamificationSummary(user.getId());
 
         return new PortfolioPublicResponse(
@@ -38,6 +39,7 @@ public class PortfolioService {
                 globalStats,
                 githubStats,
                 Map.of("Java", 80, "Python", 60), // mock
+                heatmap,
                 projects,
                 "Strong analytical skills with a focus on backend performance.", // mock AI summary
                 new GamificationLevelInfo(gamificationSummary.currentLevel())

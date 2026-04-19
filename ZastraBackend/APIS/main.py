@@ -20,8 +20,16 @@ app.add_middleware(
 )
 
 
+import traceback
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("scraper-api")
+
 @app.get("/github/{username}")
 def get_github(username: str):
+    logger.info(f"Fetching GitHub data for: {username}")
     try:
         profile = scrape_github(username)
         if not profile:
@@ -30,11 +38,13 @@ def get_github(username: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"GitHub endpoint error: {str(e)}\n{traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"Scraper error: {str(e)}")
 
 
 @app.get("/leetcode/{username}")
 def get_leetcode(username: str):
+    logger.info(f"Fetching LeetCode data for: {username}")
     try:
         profile = scrape_leetcode(username)
         if not profile:
@@ -43,11 +53,13 @@ def get_leetcode(username: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"LeetCode endpoint error: {str(e)}\n{traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"Scraper error: {str(e)}")
 
 
 @app.get("/codeforces/{username}")
 def get_codeforces(username: str):
+    logger.info(f"Fetching Codeforces data for: {username}")
     try:
         profile = scrape_codeforces(username)
         if not profile:
@@ -56,11 +68,13 @@ def get_codeforces(username: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"Codeforces endpoint error: {str(e)}\n{traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"Scraper error: {str(e)}")
 
 
 @app.get("/codechef/{username}")
 def get_codechef(username: str):
+    logger.info(f"Fetching CodeChef data for: {username}")
     try:
         profile = scrape_codechef(username)
         if not profile:
@@ -69,11 +83,13 @@ def get_codechef(username: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"CodeChef endpoint error: {str(e)}\n{traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"Scraper error: {str(e)}")
 
 
 @app.get("/gfg/{username}")
 def get_gfg(username: str):
+    logger.info(f"Fetching GFG data for: {username}")
     try:
         profile = scrape_gfg_profile(username)
         if not profile:
@@ -82,7 +98,8 @@ def get_gfg(username: str):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"GFG endpoint error: {str(e)}\n{traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"Scraper error: {str(e)}")
 
 
 @app.get("/health")

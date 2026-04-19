@@ -15,10 +15,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,6 +34,7 @@ public class ActivityService {
     private final CachedActivityDataRepository cacheRepository;
     private final ScrapingClient scrapingClient;
     private final ObjectMapper objectMapper;
+    private final GamificationService gamificationService;
 
     // Defines the cooldown period before refreshing scraper API
     private static final int CACHE_DURATION_MINUTES = 15;
@@ -60,7 +66,8 @@ public class ActivityService {
         for (IntegrationStatus status : statuses) {
             String platform = status.getPlatform().toLowerCase();
             String pUser = status.getPlatformUsername();
-            if (pUser == null || pUser.isEmpty()) continue;
+            if (pUser == null || pUser.isEmpty())
+                continue;
 
             try {
                 if ("leetcode".equals(platform)) {
@@ -92,7 +99,8 @@ public class ActivityService {
                             ccEasy = (int) (ccTotal * 0.5);
                             ccMed = (int) (ccTotal * 0.3);
                             ccHard = ccTotal - ccEasy - ccMed;
-                        } catch (Exception ignored) {}
+                        } catch (Exception ignored) {
+                        }
                     }
                 } else if ("gfg".equals(platform)) {
                     JsonNode gfgData = scrapingClient.getGfgData(pUser);
@@ -100,7 +108,7 @@ public class ActivityService {
                         JsonNode problems = gfgData.get("problems");
                         gfgTotal = problems.get("total_solved").asInt();
                         totalSolved += gfgTotal;
-                        
+
                         if (problems.has("by_difficulty")) {
                             JsonNode diff = problems.get("by_difficulty");
                             gfgEasy = diff.has("Easy") ? diff.get("Easy").asInt() : 0;
@@ -114,29 +122,46 @@ public class ActivityService {
             }
         }
 
+        System.out.println(">>> Stats Aggregated for user " + userId + ": Problems=" + totalSolved);
+
+        // Calculate real active days from GitHub heatmap
+        int activeDays = getHeatmap(userId).size();
+
         GlobalStatsResponse response = new GlobalStatsResponse(
                 totalSolved,
-                110, // Mock active days
+                activeDays,
                 new DifficultyBreakdown(
                         lcEasy + cfEasy + ccEasy + gfgEasy,
                         lcMed + cfMed + ccMed + gfgMed,
-                        lcHard + cfHard + ccHard + gfgHard
-                ),
+                        lcHard + cfHard + ccHard + gfgHard),
                 new PlatformBreakdown(
                         new DifficultyBreakdown(lcEasy, lcMed, lcHard),
                         new DifficultyBreakdown(cfEasy, cfMed, cfHard),
                         new DifficultyBreakdown(ccEasy, ccMed, ccHard),
-                        new DifficultyBreakdown(gfgEasy, gfgMed, gfgHard)
-                )
-        );
+                        new DifficultyBreakdown(gfgEasy, gfgMed, gfgHard)));
 
         // Update Cache
         try {
             cache.setGlobalStatsJson(objectMapper.writeValueAsString(response));
             cacheRepository.save(cache);
-        } catch (JsonProcessingException ignored) {}
+
+            // Trigger Gamification update
+            updateXp(userId, response);
+        } catch (JsonProcessingException ignored) {
+        }
 
         return response;
+    }
+
+    private void updateXp(UUID userId, GlobalStatsResponse global) {
+        try {
+            // We fetch the others from cache or fresh if available
+            GithubStatsResponse github = getGithubStats(userId);
+            ContestStatsResponse contests = getContestStats(userId);
+            gamificationService.updateXpFromStats(userId, global, github, contests);
+        } catch (Exception e) {
+            System.err.println("XP Update failed: " + e.getMessage());
+        }
     }
 
     @Transactional
@@ -147,7 +172,8 @@ public class ActivityService {
         if (cache.getGithubStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
             try {
                 return objectMapper.readValue(cache.getGithubStatsJson(), GithubStatsResponse.class);
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         IntegrationStatus ghStatus = integrationRepository.findByUserAndPlatform(user, "github").orElse(null);
@@ -169,7 +195,8 @@ public class ActivityService {
         try {
             cache.setGithubStatsJson(objectMapper.writeValueAsString(response));
             cacheRepository.save(cache);
-        } catch (JsonProcessingException ignored) {}
+        } catch (JsonProcessingException ignored) {
+        }
 
         return response;
     }
@@ -182,7 +209,8 @@ public class ActivityService {
         if (cache.getContestStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
             try {
                 return objectMapper.readValue(cache.getContestStatsJson(), ContestStatsResponse.class);
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         IntegrationStatus lcStatus = integrationRepository.findByUserAndPlatform(user, "leetcode").orElse(null);
@@ -195,7 +223,8 @@ public class ActivityService {
         try {
             if (lcStatus != null && lcStatus.getPlatformUsername() != null) {
                 JsonNode lcData = scrapingClient.getLeetcodeData(lcStatus.getPlatformUsername());
-                if (lcData != null && lcData.has("contestData") && lcData.get("contestData").has("ranking") && !lcData.get("contestData").get("ranking").isNull()) {
+                if (lcData != null && lcData.has("contestData") && lcData.get("contestData").has("ranking")
+                        && !lcData.get("contestData").get("ranking").isNull()) {
                     totalContests += lcData.get("contestData").get("ranking").get("attendedContestsCount").asInt();
                     highestRatingLc = (int) lcData.get("contestData").get("ranking").get("rating").asDouble();
                 }
@@ -217,20 +246,150 @@ public class ActivityService {
                 totalContests,
                 new ContestRatings(
                         new ContestRating(highestRatingLc, highestRatingLc),
-                        new ContestRating(highestRatingCf, highestRatingCf)
-                ),
+                        new ContestRating(highestRatingCf, highestRatingCf)),
                 List.of(
                         new ContestHistoryEntry("Codeforces", "Recent CF Contest", 100, "2024-03-01"),
-                        new ContestHistoryEntry("Leetcode", "Recent LC Contest", 50, "2024-03-08")
-                )
-        );
+                        new ContestHistoryEntry("Leetcode", "Recent LC Contest", 50, "2024-03-08")));
 
         try {
             cache.setContestStatsJson(objectMapper.writeValueAsString(response));
             cacheRepository.save(cache);
-        } catch (JsonProcessingException ignored) {}
+        } catch (JsonProcessingException ignored) {
+        }
 
         return response;
+    }
+
+    @Transactional
+    public List<HeatmapEntry> getHeatmap(UUID userId) {
+        User user = userRepository.findById(userId).orElseThrow();
+        CachedActivityData cache = getOrCreateCache(user);
+
+        if (cache.getHeatmapJson() != null && isCacheValid(cache.getUpdatedAt())) {
+            try {
+                return objectMapper.readValue(cache.getHeatmapJson(), new TypeReference<List<HeatmapEntry>>() {});
+            } catch (Exception ignored) {
+            }
+        }
+
+        Map<String, Integer> combinedHeatmap = new HashMap<>();
+        List<IntegrationStatus> statuses = integrationRepository.findByUser(user);
+
+        for (IntegrationStatus status : statuses) {
+            if (status.getPlatformUsername() == null || status.getPlatformUsername().isBlank()) {
+                continue;
+            }
+            String platform = status.getPlatform().toLowerCase();
+            try {
+                if ("github".equals(platform)) {
+                    JsonNode ghData = scrapingClient.getGithubData(status.getPlatformUsername());
+                    mergeDateCounts(combinedHeatmap, parseDateCountList(ghData, "activity_Heatmap"));
+                } else if ("codeforces".equals(platform)) {
+                    JsonNode cfData = scrapingClient.getCodeforcesData(status.getPlatformUsername());
+                    mergeDateCounts(combinedHeatmap, parseDateCountList(cfData, "submission_Heatmap"));
+                } else if ("leetcode".equals(platform)) {
+                    JsonNode lcData = scrapingClient.getLeetcodeData(status.getPlatformUsername());
+                    mergeDateCounts(combinedHeatmap, parseLeetCodeCalendar(lcData));
+                } else if ("codechef".equals(platform)) {
+                    JsonNode ccData = scrapingClient.getCodechefData(status.getPlatformUsername());
+                    mergeDateCounts(combinedHeatmap, parseCodeChefHeatmap(ccData));
+                } else if ("gfg".equals(platform)) {
+                    JsonNode gfgData = scrapingClient.getGfgData(status.getPlatformUsername());
+                    mergeDateCounts(combinedHeatmap, parseGfgHeatmap(gfgData));
+                }
+            } catch (Exception e) {
+                System.err.println("Heatmap scraping failed for " + platform + ": " + e.getMessage());
+            }
+        }
+
+        List<HeatmapEntry> heatmap = combinedHeatmap.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .map(entry -> new HeatmapEntry(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+
+        try {
+            cache.setHeatmapJson(objectMapper.writeValueAsString(heatmap));
+            cacheRepository.save(cache);
+        } catch (JsonProcessingException ignored) {
+        }
+
+        return heatmap;
+    }
+
+    private Map<String, Integer> parseDateCountList(JsonNode root, String fieldName) {
+        Map<String, Integer> results = new HashMap<>();
+        if (root == null || !root.has(fieldName)) {
+            return results;
+        }
+        JsonNode list = root.get(fieldName);
+        if (!list.isArray()) {
+            return results;
+        }
+        for (JsonNode entry : list) {
+            String raw = entry.asText(null);
+            if (raw == null) continue;
+            String[] parts = raw.split(": ");
+            if (parts.length != 2) continue;
+            try {
+                results.merge(parts[0].trim(), Integer.parseInt(parts[1].trim()), Integer::sum);
+            } catch (NumberFormatException ignored) {
+            }
+        }
+        return results;
+    }
+
+    private Map<String, Integer> parseLeetCodeCalendar(JsonNode root) {
+        Map<String, Integer> results = new HashMap<>();
+        if (root == null || !root.has("matchedUser")) {
+            return results;
+        }
+        JsonNode calendarNode = root.at("/matchedUser/userCalendar/submissionCalendar");
+        if (!calendarNode.isTextual()) {
+            return results;
+        }
+        try {
+            Map<String, Integer> calendar = objectMapper.readValue(calendarNode.asText(), new TypeReference<Map<String, Integer>>() {});
+            calendar.forEach((date, count) -> results.merge(date, count, Integer::sum));
+        } catch (Exception ignored) {
+        }
+        return results;
+    }
+
+    private Map<String, Integer> parseCodeChefHeatmap(JsonNode root) {
+        Map<String, Integer> results = new HashMap<>();
+        if (root == null || !root.has("submission_stats")) {
+            return results;
+        }
+        JsonNode stats = root.get("submission_stats");
+        if (stats.isArray()) {
+            for (JsonNode item : stats) {
+                String date = item.path("date").asText(null);
+                int count = item.path("count").asInt(0);
+                if (date != null && !date.isBlank()) {
+                    results.merge(date, count, Integer::sum);
+                }
+            }
+        }
+        return results;
+    }
+
+    private Map<String, Integer> parseGfgHeatmap(JsonNode root) {
+        Map<String, Integer> results = new HashMap<>();
+        if (root == null || !root.has("heatmap")) {
+            return results;
+        }
+        JsonNode heatmapNode = root.get("heatmap");
+        JsonNode daily = heatmapNode.get("daily_submissions");
+        if (daily != null && daily.isObject()) {
+            daily.fields().forEachRemaining(entry -> {
+                results.merge(entry.getKey(), entry.getValue().asInt(0), Integer::sum);
+            });
+        }
+        return results;
+    }
+
+    private void mergeDateCounts(Map<String, Integer> base, Map<String, Integer> add) {
+        add.forEach((date, value) -> base.merge(date, value, Integer::sum));
     }
 
     private CachedActivityData getOrCreateCache(User user) {
@@ -238,13 +397,16 @@ public class ActivityService {
                 .orElseGet(() -> {
                     CachedActivityData newCache = new CachedActivityData();
                     newCache.setUser(user);
-                    newCache.setUpdatedAt(Instant.now().minus(CACHE_DURATION_MINUTES + 1, ChronoUnit.MINUTES)); // force initially stale
+                    newCache.setUpdatedAt(Instant.now().minus(CACHE_DURATION_MINUTES + 1, ChronoUnit.MINUTES)); // force
+                                                                                                                // initially
+                                                                                                                // stale
                     return cacheRepository.save(newCache);
                 });
     }
 
     private boolean isCacheValid(Instant lastUpdated) {
-        if (lastUpdated == null) return false;
+        if (lastUpdated == null)
+            return false;
         return ChronoUnit.MINUTES.between(lastUpdated, Instant.now()) <= CACHE_DURATION_MINUTES;
     }
 
@@ -252,15 +414,15 @@ public class ActivityService {
     public void syncAll(UUID userId) {
         User user = userRepository.findById(userId).orElseThrow();
         CachedActivityData cache = getOrCreateCache(user);
-        
+
         // Invalidate cache by setting updatedAt to yesterday
         cache.setUpdatedAt(Instant.now().minus(1, ChronoUnit.DAYS));
         cacheRepository.save(cache);
 
         // Call fetchers - since cache is now "invalid", these will hit the scrapers
-        getGlobalStats(userId);
+        getHeatmap(userId);
         getGithubStats(userId);
         getContestStats(userId);
+        getGlobalStats(userId); // must be last — uses heatmap for active days
     }
 }
-

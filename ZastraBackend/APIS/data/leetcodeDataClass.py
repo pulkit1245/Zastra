@@ -166,9 +166,30 @@ class LeetCodeProfile:
 
 # ─── Scraper ─────────────────────────────────────────────────────────────────
 
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+# ─── Robust Request Helper ───────────────
+def get_session():
+    session = requests.Session()
+    retry = Retry(
+        total=3,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["POST"]
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
 def scrape_leetcode(username: str) -> Optional[LeetCodeProfile]:
     url = "https://leetcode.com/graphql"
+    session = get_session()
 
+    # Queries omitted for brevity in instruction, keeping them as they are in the file...
+    # (The tool will handle the replacement of the block)
+    
     profile_query = """
     query getUserProfile($username: String!) {
       matchedUser(username: $username) {
@@ -212,14 +233,31 @@ def scrape_leetcode(username: str) -> Optional[LeetCodeProfile]:
     """
 
     try:
-        profile_res = requests.post(url, json={"query": profile_query, "variables": {"username": username}}, headers=HEADERS, timeout=15).json()
-        calendar_res = requests.post(url, json={"query": calendar_query, "variables": {"username": username, "year": 2025}}, headers=HEADERS, timeout=15).json()
-        contest_res = requests.post(url, json={"query": contest_query, "variables": {"username": username}}, headers=HEADERS, timeout=15).json()
-        stats_res = requests.post(url, json={"query": solved_stats_query, "variables": {"username": username}}, headers=HEADERS, timeout=15).json()
-
+        # Use session for retries and better connection management
+        profile_res = session.post(url, json={"query": profile_query, "variables": {"username": username}}, headers=HEADERS, timeout=15).json()
+        
         if "errors" in profile_res or not profile_res.get('data', {}).get('matchedUser'):
             print(f"LeetCode user '{username}' not found.")
             return None
+
+        # Fetch other data points, but don't fail if they individually fail
+        calendar_res = {}
+        try:
+            calendar_res = session.post(url, json={"query": calendar_query, "variables": {"username": username, "year": 2025}}, headers=HEADERS, timeout=10).json()
+        except Exception as e:
+            print(f"Calendar fetch failed for {username}: {e}")
+
+        contest_res = {}
+        try:
+            contest_res = session.post(url, json={"query": contest_query, "variables": {"username": username}}, headers=HEADERS, timeout=10).json()
+        except Exception as e:
+            print(f"Contest fetch failed for {username}: {e}")
+
+        stats_res = {}
+        try:
+            stats_res = session.post(url, json={"query": solved_stats_query, "variables": {"username": username}}, headers=HEADERS, timeout=10).json()
+        except Exception as e:
+            print(f"Stats fetch failed for {username}: {e}")
 
         solved_list = (stats_res.get('data') or {}).get('matchedUser', {})
         solved_list = solved_list.get('submitStatsGlobal', {}).get('acSubmissionNum', []) if solved_list else []
@@ -233,4 +271,5 @@ def scrape_leetcode(username: str) -> Optional[LeetCodeProfile]:
         )
     except Exception as e:
         print(f"LeetCode scraping error for '{username}': {e}")
-        return None
+        # Re-raise to let the main handler log the full trace
+        raise e

@@ -1,7 +1,6 @@
 package com.pulkit.ZastraBackend.service;
 
-import com.pulkit.ZastraBackend.dto.response.GamificationSummaryResponse;
-import com.pulkit.ZastraBackend.dto.response.LeaderboardEntry;
+import com.pulkit.ZastraBackend.dto.response.*;
 import com.pulkit.ZastraBackend.entity.GamificationProfile;
 import com.pulkit.ZastraBackend.entity.User;
 import com.pulkit.ZastraBackend.repository.GamificationRepository;
@@ -44,6 +43,55 @@ public class GamificationService {
         );
     }
 
+    @Transactional
+    public void updateXpFromStats(UUID userId, GlobalStatsResponse global, GithubStatsResponse github, ContestStatsResponse contests) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        GamificationProfile profile = gamificationRepository.findByUser(user)
+                .orElseGet(() -> {
+                    GamificationProfile newProfile = new GamificationProfile();
+                    newProfile.setUser(user);
+                    newProfile.setTotalXp(0);
+                    newProfile.setCurrentLevel("Code Newbie");
+                    return newProfile;
+                });
+
+        int totalXp = 0;
+
+        // 1. Solving Problems (Difficulty based)
+        if (global != null && global.difficulty() != null) {
+            totalXp += global.difficulty().easy() * 10;
+            totalXp += global.difficulty().medium() * 30;
+            totalXp += global.difficulty().hard() * 100;
+        }
+
+        // 2. GitHub Activity
+        if (github != null) {
+            totalXp += github.totalRepos() * 50;
+            totalXp += github.totalStars() * 10;
+            totalXp += github.commitsLastYear() * 2;
+        }
+
+        // 3. Competitive Programming
+        if (contests != null) {
+            totalXp += contests.totalContests() * 100;
+        }
+
+        profile.setTotalXp(totalXp);
+        profile.setCurrentLevel(calculateLevelName(totalXp));
+        
+        gamificationRepository.save(profile);
+    }
+
+    private String calculateLevelName(int xp) {
+        if (xp < 1000) return "Code Newbie";
+        if (xp < 5000) return "Apprentice Developer";
+        if (xp < 15000) return "Senior Engineer";
+        if (xp < 30000) return "Master Architect";
+        return "Coding Legend";
+    }
+
     @Transactional(readOnly = true)
     public List<LeaderboardEntry> getLeaderboard() {
         List<GamificationProfile> topProfiles = gamificationRepository.findTop10ByOrderByTotalXpDesc();
@@ -56,7 +104,7 @@ public class GamificationService {
                         profile.getUser().getUsername() != null ? profile.getUser().getUsername()
                                 : profile.getUser().getEmail().split("@")[0],
                         profile.getTotalXp(),
-                        "Java" // Hardcoded top language for MVP
+                        "Zastra Master" // Title for leaderboard
                 )
         ).collect(Collectors.toList());
     }

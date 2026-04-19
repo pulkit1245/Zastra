@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+chrome-mac-arm64/
+.vscode/
+.DS_Store

@@ -12,6 +12,7 @@ public record PortfolioPublicResponse(
         GlobalStatsResponse globalStats,
         GithubStatsResponse github,
         Map<String, Integer> topics,
+        List<HeatmapEntry> heatmap,
         List<ProjectResponse> manualProjects,
         String aiSummary,
         GamificationLevelInfo gamification

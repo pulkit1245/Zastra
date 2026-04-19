@@ -167,6 +167,11 @@ public class ApiEndpointsIntegrationTest {
         mockMvc.perform(get("/api/v1/activity/contest")
                         .header("Authorization", "Bearer " + jwtToken))
                 .andExpect(status().isOk());
+
+        mockMvc.perform(get("/api/v1/activity/heatmap")
+                        .header("Authorization", "Bearer " + jwtToken))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isArray());
     }
 
     @Test
@@ -187,7 +192,8 @@ public class ApiEndpointsIntegrationTest {
         ensureAuthenticated();
 
         mockMvc.perform(get("/api/v1/portfolio/public/" + TEST_USERNAME))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.heatmap").isArray());
 
         mockMvc.perform(get("/api/v1/portfolio/directory"))
                 .andExpect(status().isOk());
