@@ -30,7 +30,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final JwtAuthFilter jwtAuthFilter;
+    private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
     /** Defines which routes are public and which need authentication. */
@@ -46,7 +46,8 @@ public class SecurityConfig {
                 .requestMatchers(
                     "/api/v1/auth/**",           // register + login
                     "/api/v1/portfolio/**",      // public portfolio pages
-                    "/actuator/**"               // health checks for DevOps
+                    "/actuator/**",              // health checks for DevOps
+                    "/error"                     // allow error mapping
                 ).permitAll()
                 // Everything else needs a valid JWT
                 .anyRequest().authenticated()
@@ -60,7 +61,7 @@ public class SecurityConfig {
             .authenticationProvider(authenticationProvider())
 
             // Add our JWT filter BEFORE Spring's default username/password filter
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(new JwtAuthFilter(jwtService, userDetailsService), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

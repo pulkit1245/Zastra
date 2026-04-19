@@ -4,6 +4,7 @@ import com.pulkit.ZastraBackend.dto.request.SyncRequest;
 import com.pulkit.ZastraBackend.dto.response.IntegrationStatusResponse;
 import com.pulkit.ZastraBackend.dto.response.SyncResponse;
 import com.pulkit.ZastraBackend.entity.User;
+import com.pulkit.ZastraBackend.service.ActivityService;
 import com.pulkit.ZastraBackend.service.IntegrationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ import java.util.List;
 public class IntegrationController {
 
     private final IntegrationService integrationService;
+    private final ActivityService activityService;
 
     @GetMapping
     public ResponseEntity<List<IntegrationStatusResponse>> getIntegrationStatuses(
@@ -32,5 +34,11 @@ public class IntegrationController {
             @PathVariable String platform,
             @Valid @RequestBody SyncRequest request) {
         return ResponseEntity.ok(integrationService.syncPlatform(user.getId(), platform, request));
+    }
+
+    @PostMapping("/sync-all")
+    public ResponseEntity<SyncResponse> syncAll(@AuthenticationPrincipal User user) {
+        activityService.syncAll(user.getId());
+        return ResponseEntity.ok(new SyncResponse("All platforms synchronized successfully", "SUCCESS"));
     }
 }

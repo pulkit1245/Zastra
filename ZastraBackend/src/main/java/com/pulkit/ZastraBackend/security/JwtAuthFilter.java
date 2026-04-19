@@ -25,7 +25,6 @@ import java.io.IOException;
  *  3. If no  → lets the request pass through (Spring Security will block it later
  *              if the endpoint requires authentication).
  */
-@Component
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
 
