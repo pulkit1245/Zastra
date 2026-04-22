@@ -1,0 +1,44 @@
+API Endpoint Alignment Analysis (Frontend vs Backend)
+===================================================
+
+Good news! Nearly 100% of the frontend services map exactly to the backend controllers. 
+The routing, paths, and HTTP methods match correctly across Projects, Profile, Portfolio, Integrations, Gamification, Directory, and Auth.
+
+However, there is ONE minor change required in the frontend to achieve complete alignment.
+
+===================================================
+REQUIRED CHANGES : FRONTEND
+===================================================
+
+1. Missing Endpoint in `activityService.js`
+   Backend Controller: `ActivityController.java` has a mapped endpoint:
+     - `@GetMapping("/heatmap")`  ->  `/api/v1/activity/heatmap`
+   
+   Frontend Service: `src/services/activityService.js` currently defines:
+     - `getGlobalStats`
+     - `getGithubStats`
+     - `getContestStats`
+   
+   ACTION REQUIRED:
+   You need to add the heatmap API call to `src/services/activityService.js` so the frontend can retrieve the activity heatmap data.
+
+   Add this line to `activityService.js`:
+     getHeatmap: () => api.get('/api/v1/activity/heatmap'),
+
+===================================================
+REQUIRED CHANGES : BACKEND
+===================================================
+
+- NONE. The backend controllers are correctly mapped and structured.
+
+===================================================
+SUMMARY OF MATCHED ENDPOINTS
+===================================================
+- ✅ /api/v1/projects (GET, POST, PUT, DELETE) -> Mapped correctly in projectService.js
+- ✅ /api/v1/profile (GET, PUT) -> Mapped correctly in profileService.js
+- ✅ /api/v1/portfolio/public/{username} (GET) -> Mapped correctly in portfolioService.js
+- ✅ /api/v1/portfolio/directory (GET) -> Mapped correctly in portfolioService.js
+- ✅ /api/v1/integrations (GET, POST, POST /sync-all) -> Mapped correctly in integrationService.js
+- ✅ /api/v1/gamification/summary & /leaderboard (GET) -> Mapped correctly in gamificationService.js
+- ✅ /api/v1/auth/register & /login (POST) -> Mapped correctly in authService.js
+- ✅ /api/v1/activity/global, /github, /contest (GET) -> Mapped correctly in activityService.js

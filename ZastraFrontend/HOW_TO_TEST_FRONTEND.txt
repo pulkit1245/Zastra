@@ -1,0 +1,443 @@
+================================================================================
+          HOW TO TEST THE ZASTRA FRONTEND — Complete Step-by-Step Guide
+================================================================================
+
+Tech Stack:  React 19 + Vite 8 + Tailwind CSS 4 + React Router 7
+Backend:     Spring Boot (port 8080) — MUST be running for full testing
+Frontend:    Vite dev server (port 5173)
+
+
+================================================================================
+  PART 1 — PREREQUISITES  (Do this FIRST)
+================================================================================
+
+  1. Node.js 18+ installed
+     Verify:   node -v       (should show v18.x.x or higher)
+               npm -v        (should show 9.x.x or higher)
+
+  2. Backend running on port 8080
+     Follow:   ZastraBackend\HOW_TO_RUN.txt
+     Verify:   Open http://localhost:8080/actuator/health
+               Should return:  {"status":"UP"}
+
+     ⚠ If backend is NOT running, the frontend will still load but
+       all API calls (login, register, dashboard data) will fail.
+
+
+================================================================================
+  PART 2 — STARTING THE FRONTEND
+================================================================================
+
+STEP 1: Open a terminal (PowerShell / CMD)
+─────────────────────────────────────────
+  Navigate to the frontend directory:
+
+    cd C:\Users\2007p\OneDrive\Desktop\zastra\Zastra\ZastraFrontend
+
+STEP 2: Install dependencies (first time only)
+───────────────────────────────────────────────
+    npm install
+
+  Wait for it to finish. You should see a message like:
+    "added XXX packages in Xs"
+
+STEP 3: Start the dev server
+────────────────────────────
+    npm run dev
+
+  You should see output like:
+    VITE v8.x.x  ready in XXX ms
+    ➜  Local:   http://localhost:5173/
+
+STEP 4: Open the app in your browser
+─────────────────────────────────────
+    http://localhost:5173
+
+  You will be redirected to /login (because you are not authenticated).
+
+
+================================================================================
+  PART 3 — TESTING AUTHENTICATION
+================================================================================
+
+TEST 3.1: Register a New Account
+─────────────────────────────────
+  1. On the login page, click "Create account" link at the bottom
+  2. You should land on:  http://localhost:5173/register
+  3. Fill in the form:
+       Username:   testuser1
+       Email:      testuser1@example.com
+       Password:   Test@123  (min 6 characters)
+  4. Click "Create Account"
+
+  ✅ EXPECTED: Green toast "Account created successfully!",
+               redirected to /dashboard
+
+  ❌ IF ERROR:  Check browser console (F12 → Console tab) for errors.
+               Common issues:
+               - "Network Error" → Backend is not running
+               - "Username already exists" → Use a different username
+               - "400 Bad Request" → Check password length (min 6)
+
+TEST 3.2: Log Out
+──────────────────
+  1. In the sidebar/navbar, find the logout button/option
+  2. Click it
+
+  ✅ EXPECTED: Redirected to /login page
+               Token removed from localStorage
+
+  To verify token is cleared:
+    Press F12 → Application tab → Local Storage → http://localhost:5173
+    "zastra_token" and "zastra_user_id" should be gone
+
+TEST 3.3: Log In with Existing Account
+───────────────────────────────────────
+  1. On the login page (http://localhost:5173/login)
+  2. Enter:
+       Email:      testuser1@example.com
+       Password:   Test@123
+  3. Click "Sign in"
+
+  ✅ EXPECTED: Redirected to /dashboard
+               JWT token stored in localStorage
+
+TEST 3.4: Test Protected Routes (Without Login)
+────────────────────────────────────────────────
+  1. Log out first (or open an incognito/private window)
+  2. Try visiting these URLs directly:
+       http://localhost:5173/dashboard
+       http://localhost:5173/projects
+       http://localhost:5173/activity
+       http://localhost:5173/profile
+       http://localhost:5173/integrations
+       http://localhost:5173/gamification
+
+  ✅ EXPECTED: All should redirect you to /login
+
+TEST 3.5: Test Invalid Login
+─────────────────────────────
+  1. On login page, enter wrong credentials:
+       Email:      wrong@email.com
+       Password:   wrongpassword
+  2. Click "Sign in"
+
+  ✅ EXPECTED: Red toast with error message (e.g., "Invalid credentials")
+               Should NOT redirect to dashboard
+
+
+================================================================================
+  PART 4 — TESTING DASHBOARD  (Must be logged in)
+================================================================================
+
+TEST 4.1: Dashboard Page
+─────────────────────────
+  1. After login, you should be on:  http://localhost:5173/dashboard
+  2. Check the following elements load:
+     - Welcome message / greeting
+     - Stats cards (projects count, contributions, etc.)
+     - Activity chart / recent activity
+     - Sidebar navigation
+
+  ✅ EXPECTED: Page loads without errors, data is displayed
+  ❌ IF EMPTY:  Data may not exist yet — this is normal for a new account
+
+TEST 4.2: Dark Mode / Theme Toggle
+───────────────────────────────────
+  1. Find the theme toggle button (usually sun/moon icon in the navbar)
+  2. Click to switch between light and dark mode
+
+  ✅ EXPECTED: Entire UI switches theme smoothly
+               Preference persists after page refresh
+               Check: localStorage should have theme preference
+
+
+================================================================================
+  PART 5 — TESTING SIDEBAR NAVIGATION  (Must be logged in)
+================================================================================
+
+  Click each item in the sidebar and verify the page loads:
+
+  1. Dashboard     → http://localhost:5173/dashboard
+  2. Activity      → http://localhost:5173/activity
+  3. Projects      → http://localhost:5173/projects
+  4. Integrations  → http://localhost:5173/integrations
+  5. Profile       → http://localhost:5173/profile
+  6. Gamification  → http://localhost:5173/gamification
+
+  ✅ EXPECTED: Each page loads without errors
+               Active sidebar item is highlighted
+               No blank/white pages
+               Console (F12) shows no red errors
+
+
+================================================================================
+  PART 6 — TESTING PROJECTS PAGE
+================================================================================
+
+TEST 6.1: View Projects
+────────────────────────
+  1. Navigate to:  http://localhost:5173/projects
+  2. Page should show project list (may be empty for new users)
+
+TEST 6.2: Add a New Project (if the feature exists)
+────────────────────────────────────────────────────
+  1. Look for an "Add Project" / "New Project" button
+  2. Fill in project details:
+       Name:         My Test Project
+       Description:  A test project for Zastra
+       Tech Stack:   React, Node.js
+       GitHub URL:   https://github.com/testuser/test-project
+  3. Submit the form
+
+  ✅ EXPECTED: Project appears in the list
+               Toast notification confirms creation
+
+TEST 6.3: Edit / Delete a Project
+─────────────────────────────────
+  1. Click on an existing project
+  2. Look for edit/delete options
+  3. Test editing a field and saving
+  4. Test deleting a project
+
+  ✅ EXPECTED: Changes persist after refresh
+               Deleted projects are removed from the list
+
+
+================================================================================
+  PART 7 — TESTING INTEGRATIONS PAGE
+================================================================================
+
+TEST 7.1: View Integrations
+────────────────────────────
+  1. Navigate to:  http://localhost:5173/integrations
+  2. You should see cards for supported platforms:
+       - GitHub
+       - LeetCode
+       - Codeforces
+       - GeeksforGeeks
+       - CodeChef
+
+TEST 7.2: Connect a Platform
+─────────────────────────────
+  1. Click "Connect" or "Link" on a platform (e.g., GitHub)
+  2. Enter your platform username
+  3. Submit
+
+  ✅ EXPECTED: Platform shows as "Connected"
+               Profile data from that platform is pulled in
+
+  ⚠ NOTE: Live data fetching requires the Python FastAPI scraper
+           to be running on port 8000 (see backend HOW_TO_RUN.txt, Part 2)
+
+
+================================================================================
+  PART 8 — TESTING ACTIVITY PAGE
+================================================================================
+
+  1. Navigate to:  http://localhost:5173/activity
+  2. Should display recent coding activity, contributions, etc.
+  3. Check for:
+     - Activity timeline or list
+     - Date filters (if any)
+     - Activity chart
+
+  ✅ EXPECTED: Page loads without errors
+  ❌ IF EMPTY:  Normal for new accounts with no connected platforms
+
+
+================================================================================
+  PART 9 — TESTING PROFILE PAGE
+================================================================================
+
+TEST 9.1: View Profile
+───────────────────────
+  1. Navigate to:  http://localhost:5173/profile
+  2. Should display your profile information
+
+TEST 9.2: Update Profile
+─────────────────────────
+  1. Edit your bio, display name, or other fields
+  2. Save changes
+
+  ✅ EXPECTED: Toast confirms update
+               Changes persist after refresh
+
+
+================================================================================
+  PART 10 — TESTING GAMIFICATION PAGE
+================================================================================
+
+  1. Navigate to:  http://localhost:5173/gamification
+  2. Check for:
+     - XP points / level
+     - Badges or achievements
+     - Leaderboard
+     - Progress indicators
+
+  ✅ EXPECTED: Page loads with gamification data
+  ❌ IF EMPTY:  Normal for new users with no activity
+
+
+================================================================================
+  PART 11 — TESTING PUBLIC PAGES (No login required)
+================================================================================
+
+TEST 11.1: Developer Directory
+──────────────────────────────
+  1. Open (even in incognito):  http://localhost:5173/directory
+  2. Should show a public list of registered developers
+
+  ✅ EXPECTED: Page loads without needing authentication
+               Developers listed (if any exist in the database)
+
+TEST 11.2: Public Portfolio
+───────────────────────────
+  1. Open:  http://localhost:5173/portfolio/testuser1
+     (replace "testuser1" with the username you registered)
+  2. Should show that user's public portfolio
+
+  ✅ EXPECTED: Portfolio page loads with user's public data
+               No login required
+
+TEST 11.3: 404 Page
+────────────────────
+  1. Open:  http://localhost:5173/some-random-page-that-does-not-exist
+  2. Should show a 404 / Not Found page
+
+  ✅ EXPECTED: Custom 404 page displayed (not a blank screen)
+
+
+================================================================================
+  PART 12 — TESTING RESPONSIVENESS
+================================================================================
+
+  1. Open Chrome DevTools (F12)
+  2. Click the device toggle icon (📱) or press Ctrl+Shift+M
+  3. Test at different screen sizes:
+     - Mobile:   375 x 667  (iPhone SE)
+     - Tablet:   768 x 1024 (iPad)
+     - Desktop:  1440 x 900
+
+  Check for each page:
+  ✅ Sidebar collapses on mobile
+  ✅ Text does not overflow
+  ✅ Buttons and forms are usable on small screens
+  ✅ No horizontal scrollbar on mobile
+
+
+================================================================================
+  PART 13 — TESTING BROWSER CONSOLE FOR ERRORS
+================================================================================
+
+  This is CRITICAL — do this for every page:
+
+  1. Open Chrome DevTools: Press F12
+  2. Go to the "Console" tab
+  3. Navigate through each page
+  4. Look for:
+     ❌ Red errors (JavaScript errors, failed API calls)
+     ⚠  Yellow warnings (deprecations, React warnings)
+
+  Common acceptable warnings:
+     - "React does not recognize the X prop" (minor, from 3rd party libs)
+
+  Things that indicate bugs:
+     - "Uncaught TypeError"
+     - "Cannot read property of undefined"
+     - "Failed to fetch" / "Network Error" (backend issue)
+     - "404 Not Found" on API calls (endpoint mismatch)
+
+
+================================================================================
+  PART 14 — TESTING NETWORK REQUESTS
+================================================================================
+
+  1. Open Chrome DevTools (F12) → "Network" tab
+  2. Perform actions (login, load dashboard, etc.)
+  3. Look at the API requests:
+
+  Check:
+  ✅ Requests go to http://localhost:8080/api/v1/...
+  ✅ Auth requests include "Authorization: Bearer <token>" header
+  ✅ Responses return 200/201 for successful operations
+  ✅ No CORS errors (Access-Control-Allow-Origin issues)
+
+  API Endpoints used by the frontend:
+     POST  /api/v1/auth/register       — Register
+     POST  /api/v1/auth/login          — Login
+     GET   /api/v1/profile             — Get profile
+     PUT   /api/v1/profile             — Update profile
+     GET   /api/v1/projects            — List projects
+     POST  /api/v1/projects            — Create project
+     GET   /api/v1/activity            — Get activity
+     GET   /api/v1/integrations        — List integrations
+     POST  /api/v1/integrations        — Connect platform
+     GET   /api/v1/gamification        — Get gamification data
+     GET   /api/v1/portfolio/{user}    — Public portfolio
+
+
+================================================================================
+  PART 15 — PRODUCTION BUILD TEST
+================================================================================
+
+  Test that the app builds successfully for production:
+
+  1. Stop the dev server (Ctrl+C)
+  2. Run:
+       npm run build
+
+  ✅ EXPECTED: Build completes with no errors
+               Output in "dist/" folder
+
+  3. Preview the production build:
+       npm run preview
+
+  4. Open:  http://localhost:4173
+  5. Test login and basic navigation
+
+  ✅ EXPECTED: App works identically to dev mode
+
+
+================================================================================
+  PART 16 — LINT CHECK
+================================================================================
+
+  Run the ESLint linter to check code quality:
+
+    npm run lint
+
+  ✅ EXPECTED: No errors (warnings are acceptable)
+  ❌ IF ERRORS: Review and fix them before considering the app stable
+
+
+================================================================================
+  QUICK TEST CHECKLIST  (Summary)
+================================================================================
+
+  [ ] npm install completes without errors
+  [ ] npm run dev starts the Vite server
+  [ ] App opens at http://localhost:5173
+  [ ] /login page renders correctly
+  [ ] /register page renders correctly
+  [ ] Can register a new user
+  [ ] Can log in with registered user
+  [ ] Can log out
+  [ ] Protected routes redirect to /login when not authenticated
+  [ ] /dashboard loads after login
+  [ ] Sidebar navigation works (all 6 pages)
+  [ ] /projects page loads
+  [ ] /activity page loads
+  [ ] /integrations page loads
+  [ ] /profile page loads
+  [ ] /gamification page loads
+  [ ] /directory page loads (public, no auth needed)
+  [ ] /portfolio/<username> loads (public, no auth needed)
+  [ ] 404 page works for unknown routes
+  [ ] Dark/Light theme toggle works
+  [ ] Responsive layout works on mobile
+  [ ] No red errors in browser console
+  [ ] npm run build succeeds
+  [ ] npm run lint passes
+
+================================================================================
