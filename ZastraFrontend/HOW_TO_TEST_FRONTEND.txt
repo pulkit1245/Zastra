@@ -67,7 +67,7 @@ TEST 3.1: Register a New Account
   3. Fill in the form:
        Username:   testuser1
        Email:      testuser1@example.com
-       Password:   Test@123  (min 6 characters)
+       Password:   [any 6-character string]
   4. Click "Create Account"
 
   ✅ EXPECTED: Green toast "Account created successfully!",
@@ -96,7 +96,7 @@ TEST 3.3: Log In with Existing Account
   1. On the login page (http://localhost:5173/login)
   2. Enter:
        Email:      testuser1@example.com
-       Password:   Test@123
+       Password:   [the 6-character string you chose]
   3. Click "Sign in"
 
   ✅ EXPECTED: Redirected to /dashboard
