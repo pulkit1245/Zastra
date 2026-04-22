@@ -1,0 +1,152 @@
+================================================================================
+              HOW TO RUN THE ZASTRA BACKEND — Step-by-Step Guide
+================================================================================
+
+Your project has TWO backend services:
+  1. Spring Boot API   (Java)  — Main backend on port 8080
+  2. FastAPI Scraper    (Python) — Data scraping service on port 8000
+
+The app is currently configured to use an in-memory H2 database (no external
+DB needed), but Redis and Kafka are referenced in config.
+
+================================================================================
+  PART 1 — SPRING BOOT BACKEND (Java)
+================================================================================
+
+PREREQUISITES:
+  • Java 21 (JDK)   ← IMPORTANT: Your build.gradle requires Java 21,
+                       but you currently have Java 17 installed.
+                       You MUST install Java 21 first.
+
+STEP 1: Install Java 21
+────────────────────────
+  Option A — Download from Adoptium (recommended):
+    Go to: https://adoptium.net/temurin/releases/?version=21
+    Download the Windows x64 .msi installer and run it.
+    Make sure "Set JAVA_HOME" is checked during installation.
+
+  Option B — Using winget (from PowerShell as Admin):
+    winget install EclipseAdoptium.Temurin.21.JDK
+
+  After installing, verify by opening a NEW terminal:
+    java -version
+    (Should show: openjdk version "21.x.x")
+
+STEP 2: Set the JWT Secret (Optional for dev)
+──────────────────────────────────────────────
+  The app uses a default fallback secret for development.
+  For production, set an environment variable:
+
+    $env:JWT_SECRET = "your-secret-key-at-least-32-characters-long"
+
+STEP 3: Run the Spring Boot Application
+────────────────────────────────────────
+  Open a terminal in the backend directory:
+
+    cd C:\Users\2007p\OneDrive\Desktop\zastra\Zastra\ZastraBackend
+
+  Then run:
+
+    .\gradlew.bat bootRun
+
+  Wait for the startup log to show:
+    "Started ZastraBackendApplication in X.XXX seconds"
+
+  The API will be available at:
+    http://localhost:8080
+
+  H2 Database Console (for debugging):
+    http://localhost:8080/h2-console
+    JDBC URL: jdbc:h2:mem:devforge
+    Username: sa
+    Password: (leave blank)
+
+STEP 4: Verify It's Running
+───────────────────────────
+  Open a browser or use curl:
+    http://localhost:8080/actuator/health
+
+  You should see:
+    {"status":"UP"}
+
+
+================================================================================
+  PART 2 — PYTHON FASTAPI SCRAPER (Optional — for live platform data)
+================================================================================
+
+  The scraper fetches live data from GitHub, LeetCode, Codeforces, GFG,
+  and CodeChef. The Spring Boot app can run without it, but platform
+  integration features won't return live data.
+
+PREREQUISITES:
+  • Python 3.11+ installed
+  • pip (comes with Python)
+  • Google Chrome (for Selenium-based scraping)
+
+STEP 1: Set Up Python Environment
+──────────────────────────────────
+  Open a terminal:
+
+    cd C:\Users\2007p\OneDrive\Desktop\zastra\Zastra\ZastraBackend\APIS
+    python -m venv venv
+    .\venv\Scripts\activate
+    pip install -r requirements.txt
+
+STEP 2: Run the FastAPI Server
+──────────────────────────────
+    uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  The scraper will be available at:
+    http://localhost:8000
+    http://localhost:8000/docs   (Swagger UI)
+
+
+================================================================================
+  PART 3 — RUNNING FRONTEND + BACKEND TOGETHER
+================================================================================
+
+  You need THREE terminals open:
+
+  Terminal 1 — Spring Boot Backend:
+    cd C:\Users\2007p\OneDrive\Desktop\zastra\Zastra\ZastraBackend
+    .\gradlew.bat bootRun
+
+  Terminal 2 — Python Scraper (optional):
+    cd C:\Users\2007p\OneDrive\Desktop\zastra\Zastra\ZastraBackend\APIS
+    .\venv\Scripts\activate
+    uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  Terminal 3 — React Frontend:
+    cd C:\Users\2007p\OneDrive\Desktop\zastra\Zastra\ZastraFrontend
+    npm run dev
+
+  Then open: http://localhost:5173
+
+
+================================================================================
+  TROUBLESHOOTING
+================================================================================
+
+  PROBLEM: "Unable to delete directory" error during Gradle build
+  FIX:     Close all IDEs/terminals using the project, then run:
+             .\gradlew.bat clean
+           Then retry: .\gradlew.bat bootRun
+
+  PROBLEM: Redis connection refused
+  FIX:     Redis is configured at localhost:6379. If you don't have
+           Redis installed, the app may fail to start. Either:
+           • Install Redis: https://github.com/microsoftarchive/redis/releases
+           • Or comment out spring.data.redis.* lines in application.properties
+             and remove the redis dependency from build.gradle
+
+  PROBLEM: Kafka connection error
+  FIX:     Similar to Redis — Kafka is at localhost:9092. If not using
+           event-driven features, you can disable it by commenting out
+           spring.kafka.* lines and removing kafka deps from build.gradle.
+
+  PROBLEM: Port 8080 already in use
+  FIX:     Add this to application.properties:
+             server.port=8081
+           Then update the frontend's API base URL accordingly.
+
+================================================================================
