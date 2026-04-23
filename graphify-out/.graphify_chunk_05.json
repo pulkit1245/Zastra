@@ -1,0 +1,854 @@
+﻿{
+    "hyperedges":  [
+
+                   ],
+    "output_tokens":  1,
+    "input_tokens":  6456,
+    "edges":  [
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/components/ThemeToggle.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/components/ThemeToggle.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/components/ThemeToggle.jsx::ThemeToggle"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/context/AuthContext.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/context/AuthContext.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/context/AuthContext.jsx::AuthProvider"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/context/AuthContext.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/context/AuthContext.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/context/AuthContext.jsx::useAuth"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/context/ThemeContext.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/context/ThemeContext.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/context/ThemeContext.jsx::ThemeProvider"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/context/ThemeContext.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/context/ThemeContext.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/context/ThemeContext.jsx::useTheme"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/hooks/useApi.js",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/hooks/useApi.js",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/hooks/useApi.js::useApi"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/layouts/AuthLayout.jsx::AuthLayout"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:ThemeToggle"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/layouts/DashboardLayout.jsx::DashboardLayout"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:Navbar"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:Sidebar"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/NotFoundPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/NotFoundPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/NotFoundPage.jsx::NotFoundPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::ActivityPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::GlobalTab"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::GithubTab"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::ContestTab"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:StatCard"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:EmptyState"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/auth/LoginPage.jsx::LoginPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:toast"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/auth/RegisterPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/auth/RegisterPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/auth/RegisterPage.jsx::RegisterPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/auth/RegisterPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/auth/RegisterPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:toast"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/dashboard/DashboardPage.jsx::DashboardPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:StatCard"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:SyncProgressPanel"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/gamification/GamificationPage.jsx::GamificationPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:EmptyState"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx::IntegrationsPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:EmptyState"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:SyncProgressPanel"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:toast"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx::DirectoryPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:EmptyState"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:ThemeToggle"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx::PublicPortfolioPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:EmptyState"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:StatCard"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:ThemeToggle"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/profile/ProfilePage.jsx::ProfilePage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:toast"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraFrontend/src/pages/projects/ProjectsPage.jsx::ProjectsPage"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:LoadingSpinner"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:EmptyState"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:ConfirmDialog"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:toast"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/services/activityService.js",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/services/activityService.js",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:api"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/services/api.js",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/services/api.js",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:axios"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/services/authService.js",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/services/authService.js",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:api"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/services/gamificationService.js",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/services/gamificationService.js",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:api"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraFrontend/src/services/integrationService.js",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraFrontend/src/services/integrationService.js",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:api"
+                  }
+              ],
+    "nodes":  [
+                  {
+                      "label":  "RegisterPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/auth/RegisterPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/auth/RegisterPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "integrationService.js",
+                      "source_file":  "ZastraFrontend/src/services/integrationService.js",
+                      "id":  "file:ZastraFrontend/src/services/integrationService.js",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ThemeContext.jsx",
+                      "source_file":  "ZastraFrontend/src/context/ThemeContext.jsx",
+                      "id":  "file:ZastraFrontend/src/context/ThemeContext.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "useTheme",
+                      "source_file":  "ZastraFrontend/src/context/ThemeContext.jsx",
+                      "id":  "entity:ZastraFrontend/src/context/ThemeContext.jsx::useTheme",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ThemeToggle",
+                      "source_file":  "ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "id":  "module:ThemeToggle",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "NotFoundPage",
+                      "source_file":  "ZastraFrontend/src/pages/NotFoundPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/NotFoundPage.jsx::NotFoundPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "toast",
+                      "source_file":  "ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "id":  "module:toast",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "IntegrationsPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "api",
+                      "source_file":  "ZastraFrontend/src/services/activityService.js",
+                      "id":  "module:api",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "LoginPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ThemeToggle.jsx",
+                      "source_file":  "ZastraFrontend/src/components/ThemeToggle.jsx",
+                      "id":  "file:ZastraFrontend/src/components/ThemeToggle.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "GamificationPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ActivityPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "NotFoundPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/NotFoundPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/NotFoundPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "useAuth",
+                      "source_file":  "ZastraFrontend/src/context/AuthContext.jsx",
+                      "id":  "entity:ZastraFrontend/src/context/AuthContext.jsx::useAuth",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "DashboardPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "LoadingSpinner",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "module:LoadingSpinner",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "gamificationService.js",
+                      "source_file":  "ZastraFrontend/src/services/gamificationService.js",
+                      "id":  "file:ZastraFrontend/src/services/gamificationService.js",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "Navbar",
+                      "source_file":  "ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "id":  "module:Navbar",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "GithubTab",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::GithubTab",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ContestTab",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::ContestTab",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ThemeProvider",
+                      "source_file":  "ZastraFrontend/src/context/ThemeContext.jsx",
+                      "id":  "entity:ZastraFrontend/src/context/ThemeContext.jsx::ThemeProvider",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "EmptyState",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "module:EmptyState",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "activityService.js",
+                      "source_file":  "ZastraFrontend/src/services/activityService.js",
+                      "id":  "file:ZastraFrontend/src/services/activityService.js",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ProfilePage",
+                      "source_file":  "ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/profile/ProfilePage.jsx::ProfilePage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ThemeToggle",
+                      "source_file":  "ZastraFrontend/src/components/ThemeToggle.jsx",
+                      "id":  "entity:ZastraFrontend/src/components/ThemeToggle.jsx::ThemeToggle",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "IntegrationsPage",
+                      "source_file":  "ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/integrations/IntegrationsPage.jsx::IntegrationsPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "PublicPortfolioPage",
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx::PublicPortfolioPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "Sidebar",
+                      "source_file":  "ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "id":  "module:Sidebar",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "ProjectsPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "useApi.js",
+                      "source_file":  "ZastraFrontend/src/hooks/useApi.js",
+                      "id":  "file:ZastraFrontend/src/hooks/useApi.js",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "RegisterPage",
+                      "source_file":  "ZastraFrontend/src/pages/auth/RegisterPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/auth/RegisterPage.jsx::RegisterPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "axios",
+                      "source_file":  "ZastraFrontend/src/services/api.js",
+                      "id":  "module:axios",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "ProfilePage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/profile/ProfilePage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "AuthLayout",
+                      "source_file":  "ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "id":  "entity:ZastraFrontend/src/layouts/AuthLayout.jsx::AuthLayout",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "AuthProvider",
+                      "source_file":  "ZastraFrontend/src/context/AuthContext.jsx",
+                      "id":  "entity:ZastraFrontend/src/context/AuthContext.jsx::AuthProvider",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ActivityPage",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::ActivityPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "GamificationPage",
+                      "source_file":  "ZastraFrontend/src/pages/gamification/GamificationPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/gamification/GamificationPage.jsx::GamificationPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "AuthContext.jsx",
+                      "source_file":  "ZastraFrontend/src/context/AuthContext.jsx",
+                      "id":  "file:ZastraFrontend/src/context/AuthContext.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "api.js",
+                      "source_file":  "ZastraFrontend/src/services/api.js",
+                      "id":  "file:ZastraFrontend/src/services/api.js",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "DirectoryPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ConfirmDialog",
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "id":  "module:ConfirmDialog",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "DirectoryPage",
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/portfolio/DirectoryPage.jsx::DirectoryPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "DashboardPage",
+                      "source_file":  "ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/dashboard/DashboardPage.jsx::DashboardPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "StatCard",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "module:StatCard",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "DashboardLayout.jsx",
+                      "source_file":  "ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "id":  "file:ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "GlobalTab",
+                      "source_file":  "ZastraFrontend/src/pages/activity/ActivityPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/activity/ActivityPage.jsx::GlobalTab",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "AuthLayout.jsx",
+                      "source_file":  "ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "id":  "file:ZastraFrontend/src/layouts/AuthLayout.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "useApi",
+                      "source_file":  "ZastraFrontend/src/hooks/useApi.js",
+                      "id":  "entity:ZastraFrontend/src/hooks/useApi.js::useApi",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "authService.js",
+                      "source_file":  "ZastraFrontend/src/services/authService.js",
+                      "id":  "file:ZastraFrontend/src/services/authService.js",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "PublicPortfolioPage.jsx",
+                      "source_file":  "ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "id":  "file:ZastraFrontend/src/pages/portfolio/PublicPortfolioPage.jsx",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "SyncProgressPanel",
+                      "source_file":  "ZastraFrontend/src/pages/dashboard/DashboardPage.jsx",
+                      "id":  "module:SyncProgressPanel",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "ProjectsPage",
+                      "source_file":  "ZastraFrontend/src/pages/projects/ProjectsPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/projects/ProjectsPage.jsx::ProjectsPage",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "DashboardLayout",
+                      "source_file":  "ZastraFrontend/src/layouts/DashboardLayout.jsx",
+                      "id":  "entity:ZastraFrontend/src/layouts/DashboardLayout.jsx::DashboardLayout",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "LoginPage",
+                      "source_file":  "ZastraFrontend/src/pages/auth/LoginPage.jsx",
+                      "id":  "entity:ZastraFrontend/src/pages/auth/LoginPage.jsx::LoginPage",
+                      "type":  "concept"
+                  }
+              ]
+}

@@ -1,0 +1,596 @@
+﻿{
+    "hyperedges":  [
+
+                   ],
+    "output_tokens":  1,
+    "input_tokens":  397,
+    "edges":  [
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java::LoginRequest"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.validation.constraints.Email"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.validation.constraints.NotBlank"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java::ProfileUpdateRequest"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java::ProjectRequest"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.validation.constraints.NotBlank"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java::RegisterRequest"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.validation.constraints.Email"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.validation.constraints.NotBlank"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.validation.constraints.Size"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java::SyncRequest"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.validation.constraints.NotBlank"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AiSummaryResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AiSummaryResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AiSummaryResponse.java::AiSummaryResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AuthResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AuthResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AuthResponse.java::AuthResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestHistoryEntry.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestHistoryEntry.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestHistoryEntry.java::ContestHistoryEntry"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRating.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRating.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRating.java::ContestRating"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRatings.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRatings.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRatings.java::ContestRatings"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java::ContestStatsResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/DifficultyBreakdown.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/DifficultyBreakdown.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/DifficultyBreakdown.java::DifficultyBreakdown"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationLevelInfo.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationLevelInfo.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationLevelInfo.java::GamificationLevelInfo"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationSummaryResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationSummaryResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationSummaryResponse.java::GamificationSummaryResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java::GithubStatsResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GlobalStatsResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GlobalStatsResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GlobalStatsResponse.java::GlobalStatsResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/HeatmapEntry.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/HeatmapEntry.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/HeatmapEntry.java::HeatmapEntry"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/IntegrationStatusResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/IntegrationStatusResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/IntegrationStatusResponse.java::IntegrationStatusResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/LeaderboardEntry.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/LeaderboardEntry.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/LeaderboardEntry.java::LeaderboardEntry"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/NotificationResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/NotificationResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/NotificationResponse.java::NotificationResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PlatformBreakdown.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PlatformBreakdown.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PlatformBreakdown.java::PlatformBreakdown"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioDirectoryEntry.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioDirectoryEntry.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioDirectoryEntry.java::PortfolioDirectoryEntry"
+                  }
+              ],
+    "nodes":  [
+                  {
+                      "label":  "PortfolioDirectoryEntry",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioDirectoryEntry.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioDirectoryEntry.java::PortfolioDirectoryEntry",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "LoginRequest.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "java.util.List",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "id":  "module:java.util.List",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "AuthResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AuthResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AuthResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "DifficultyBreakdown",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/DifficultyBreakdown.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/DifficultyBreakdown.java::DifficultyBreakdown",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "LoginRequest",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java::LoginRequest",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "AiSummaryResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AiSummaryResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AiSummaryResponse.java::AiSummaryResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "GamificationLevelInfo.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationLevelInfo.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationLevelInfo.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "NotificationResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/NotificationResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/NotificationResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ContestStatsResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ContestHistoryEntry.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestHistoryEntry.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestHistoryEntry.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "GamificationLevelInfo",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationLevelInfo.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationLevelInfo.java::GamificationLevelInfo",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ProfileUpdateRequest",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java::ProfileUpdateRequest",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "jakarta.validation.constraints.Email",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "id":  "module:jakarta.validation.constraints.Email",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "RegisterRequest.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ContestRatings.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRatings.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRatings.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "LeaderboardEntry",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/LeaderboardEntry.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/LeaderboardEntry.java::LeaderboardEntry",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "GlobalStatsResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GlobalStatsResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GlobalStatsResponse.java::GlobalStatsResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "PortfolioDirectoryEntry.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioDirectoryEntry.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioDirectoryEntry.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "PlatformBreakdown",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PlatformBreakdown.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PlatformBreakdown.java::PlatformBreakdown",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "PlatformBreakdown.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PlatformBreakdown.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PlatformBreakdown.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "GlobalStatsResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GlobalStatsResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GlobalStatsResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "SyncRequest.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "DifficultyBreakdown.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/DifficultyBreakdown.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/DifficultyBreakdown.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "HeatmapEntry",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/HeatmapEntry.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/HeatmapEntry.java::HeatmapEntry",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ContestRatings",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRatings.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRatings.java::ContestRatings",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ContestStatsResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestStatsResponse.java::ContestStatsResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "AuthResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AuthResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AuthResponse.java::AuthResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "HeatmapEntry.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/HeatmapEntry.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/HeatmapEntry.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "jakarta.validation.constraints.NotBlank",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/LoginRequest.java",
+                      "id":  "module:jakarta.validation.constraints.NotBlank",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "LeaderboardEntry.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/LeaderboardEntry.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/LeaderboardEntry.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ProjectRequest.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "RegisterRequest",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java::RegisterRequest",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "IntegrationStatusResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/IntegrationStatusResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/IntegrationStatusResponse.java::IntegrationStatusResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ContestRating.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRating.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRating.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ProjectRequest",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProjectRequest.java::ProjectRequest",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "GamificationSummaryResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationSummaryResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationSummaryResponse.java::GamificationSummaryResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "NotificationResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/NotificationResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/NotificationResponse.java::NotificationResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "AiSummaryResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AiSummaryResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/AiSummaryResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "jakarta.validation.constraints.Size",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/RegisterRequest.java",
+                      "id":  "module:jakarta.validation.constraints.Size",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "SyncRequest",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/SyncRequest.java::SyncRequest",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ContestHistoryEntry",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestHistoryEntry.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestHistoryEntry.java::ContestHistoryEntry",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ContestRating",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRating.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ContestRating.java::ContestRating",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "IntegrationStatusResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/IntegrationStatusResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/IntegrationStatusResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "GithubStatsResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java::GithubStatsResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "GamificationSummaryResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationSummaryResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GamificationSummaryResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "ProfileUpdateRequest.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/request/ProfileUpdateRequest.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "GithubStatsResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/GithubStatsResponse.java",
+                      "type":  "file"
+                  }
+              ]
+}

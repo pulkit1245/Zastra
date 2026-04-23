@@ -1,0 +1,18 @@
+﻿{
+    "hyperedges":  [
+
+                   ],
+    "output_tokens":  1,
+    "input_tokens":  491,
+    "edges":  [
+
+              ],
+    "nodes":  [
+                  {
+                      "label":  "favicon.svg",
+                      "source_file":  "ZastraFrontend/public/favicon.svg",
+                      "id":  "file:ZastraFrontend/public/favicon.svg",
+                      "type":  "file"
+                  }
+              ]
+}
