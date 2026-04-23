@@ -585,5 +585,9 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ---
 
 <p align="center">
-  Built with ❤️ by <a href="https://github.com/pulkit1245">Pulkit Singh</a>
+
+  Built with ❤️ by <a href="https://github.com/pulkit1245">Team Mahaveera</a><br>
+
+  <b>Lead: Pulkit Verma</b>
+
 </p>
