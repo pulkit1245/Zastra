@@ -32,8 +32,30 @@ public class IntegrationController {
     public ResponseEntity<SyncResponse> syncPlatform(
             @AuthenticationPrincipal User user,
             @PathVariable String platform,
-            @Valid @RequestBody SyncRequest request) {
-        return ResponseEntity.ok(integrationService.syncPlatform(user.getId(), platform, request));
+            @RequestBody(required = false) SyncRequest request,
+            @RequestParam(required = false) String username) {
+
+        // Prefer JSON body, fall back to query param if provided
+        String provided = null;
+        if (request != null) provided = request.username();
+        if ((provided == null || provided.isBlank()) && username != null && !username.isBlank()) provided = username;
+
+        if (provided == null || provided.isBlank()) {
+            return ResponseEntity.badRequest().body(new SyncResponse("username is required", "ERROR"));
+        }
+        System.out.println("[IntegrationController] sync request for platform=" + platform + " username=" + provided + " userId=" + user.getId());
+
+        SyncResponse resp = integrationService.syncPlatform(user.getId(), platform, provided);
+
+        // Refresh cached activity data for the user so UI shows updated overall stats
+        // This will invalidate cache and fetch fresh data from scrapers.
+        try {
+            activityService.syncAll(user.getId());
+        } catch (Exception ignored) {
+            // swallow exceptions to avoid failing the sync endpoint if scrapers have issues
+        }
+
+        return ResponseEntity.ok(resp);
     }
 
     @PostMapping("/sync-all")

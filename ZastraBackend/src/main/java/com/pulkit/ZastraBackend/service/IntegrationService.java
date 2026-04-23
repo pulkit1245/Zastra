@@ -27,14 +27,21 @@ public class IntegrationService {
     public List<IntegrationStatusResponse> getIntegrationStatuses(UUID userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-
-        return integrationRepository.findByUser(user).stream()
-                .map(this::mapToResponse)
-                .collect(Collectors.toList());
+                // Always return the supported platforms so frontend can show all cards
+                List<String> supported = List.of("github", "leetcode", "codeforces", "codechef", "gfg");
+                List<IntegrationStatusResponse> res = new ArrayList<>();
+                for (String platform : supported) {
+                        IntegrationStatus status = integrationRepository.findByUserAndPlatform(user, platform).orElse(null);
+                        String stat = status != null ? status.getStatus() : "NEVER_SYNCED";
+                        String last = status != null && status.getLastSynced() != null ? status.getLastSynced().toString() : null;
+                        String pUser = status != null ? status.getPlatformUsername() : null;
+                        res.add(new IntegrationStatusResponse(platform, stat, last, pUser));
+                }
+                return res;
     }
 
     @Transactional
-    public SyncResponse syncPlatform(UUID userId, String platform, SyncRequest request) {
+    public SyncResponse syncPlatform(UUID userId, String platform, String username) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -45,7 +52,7 @@ public class IntegrationService {
                         .status("NEVER_SYNCED")
                         .build());
 
-        status.setPlatformUsername(request.username());
+        status.setPlatformUsername(username);
         status.setStatus("SYNCED");
         status.setLastSynced(Instant.now());
 
@@ -58,7 +65,8 @@ public class IntegrationService {
         return new IntegrationStatusResponse(
                 status.getPlatform(),
                 status.getStatus(),
-                status.getLastSynced() != null ? status.getLastSynced().toString() : null
+                status.getLastSynced() != null ? status.getLastSynced().toString() : null,
+                status.getPlatformUsername()
         );
     }
 }
