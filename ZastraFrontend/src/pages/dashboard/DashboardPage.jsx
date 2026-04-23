@@ -27,6 +27,17 @@ export default function DashboardPage() {
     profile.execute();
   }, []);
 
+  // Listen for manual refresh events (e.g., after integrations sync)
+  useEffect(() => {
+    const handler = () => {
+      globalStats.execute();
+      githubStats.execute();
+      gamification.execute();
+    };
+    window.addEventListener('activity-updated', handler);
+    return () => window.removeEventListener('activity-updated', handler);
+  }, [globalStats, githubStats, gamification]);
+
   const isLoading = globalStats.loading && !globalStats.data;
 
   if (isLoading) return <LoadingSpinner text="Loading dashboard…" />;

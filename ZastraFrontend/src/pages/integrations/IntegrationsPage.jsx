@@ -34,6 +34,17 @@ export default function IntegrationsPage() {
     integrations.execute();
   }, []);
 
+  // When integrations load, prefill input fields with saved platform usernames
+  useEffect(() => {
+    if (integrations.data && Array.isArray(integrations.data)) {
+      const initial = {};
+      integrations.data.forEach((it) => {
+        if (it.platformUsername) initial[it.platform] = it.platformUsername;
+      });
+      setSyncModals((s) => ({ ...initial, ...s }));
+    }
+  }, [integrations.data]);
+
   const handleSyncPlatform = async (platform) => {
     const username = syncModals[platform];
     if (!username?.trim()) {
@@ -55,9 +66,31 @@ export default function IntegrationsPage() {
   const handleSyncAll = async () => {
     setSyncingAll(true);
     try {
+      // First, sync each platform that has a username filled in the inputs
+      const platformsToSync = (integrations.data || []).map((p) => p.platform);
+      const perPlatformPromises = platformsToSync.map(async (platform) => {
+        const username = (syncModals[platform] || '').trim();
+        if (!username) return { platform, skipped: true };
+        try {
+          await integrationService.syncPlatform(platform, { username });
+          return { platform, ok: true };
+        } catch (e) {
+          return { platform, ok: false, error: e };
+        }
+      });
+
+      await Promise.all(perPlatformPromises);
+
+      // Then call backend sync-all to fetch data from scrapers and populate caches
       const res = await integrationService.syncAll();
-      toast.success(res.data.message || 'All platforms synced!');
+      toast.success(res.data?.message || 'All platforms synced!');
       integrations.execute();
+      // Notify other pages (dashboard/activity) to refresh their data
+      try {
+        window.dispatchEvent(new Event('activity-updated'));
+      } catch (e) {
+        // ignore in non-browser environments
+      }
     } catch (err) {
       toast.error(err.response?.data?.message || 'Failed to sync all platforms');
     } finally {
