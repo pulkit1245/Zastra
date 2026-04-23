@@ -40,6 +40,11 @@ pip-log.txt
 pip-delete-this-directory.txt
 node_modules/
 
+### Node / Frontend ###
+node_modules/
+.vite/
+dist/
+
 ### OS ###
 .DS_Store
 Thumbs.db
