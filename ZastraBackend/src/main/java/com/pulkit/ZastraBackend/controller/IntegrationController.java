@@ -13,6 +13,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/v1/integrations")
@@ -45,22 +47,34 @@ public class IntegrationController {
         }
         System.out.println("[IntegrationController] sync request for platform=" + platform + " username=" + provided + " userId=" + user.getId());
 
+        // 1. Save the username immediately (fast DB write)
         SyncResponse resp = integrationService.syncPlatform(user.getId(), platform, provided);
 
-        // Refresh cached activity data for the user so UI shows updated overall stats
-        // This will invalidate cache and fetch fresh data from scrapers.
-        try {
-            activityService.syncAll(user.getId());
-        } catch (Exception ignored) {
-            // swallow exceptions to avoid failing the sync endpoint if scrapers have issues
-        }
+        // 2. Kick off the full scrape in the background — don't block the HTTP response
+        final UUID userId = user.getId();
+        CompletableFuture.runAsync(() -> {
+            try {
+                activityService.syncAll(userId);
+            } catch (Exception e) {
+                System.err.println("[IntegrationController] background syncAll failed: " + e.getMessage());
+            }
+        });
 
+        // 3. Return immediately — frontend polls for updated data
         return ResponseEntity.ok(resp);
     }
 
     @PostMapping("/sync-all")
     public ResponseEntity<SyncResponse> syncAll(@AuthenticationPrincipal User user) {
-        activityService.syncAll(user.getId());
-        return ResponseEntity.ok(new SyncResponse("All platforms synchronized successfully", "SUCCESS"));
+        // Also fire async so the endpoint returns quickly
+        final UUID userId = user.getId();
+        CompletableFuture.runAsync(() -> {
+            try {
+                activityService.syncAll(userId);
+            } catch (Exception e) {
+                System.err.println("[IntegrationController] background syncAll failed: " + e.getMessage());
+            }
+        });
+        return ResponseEntity.ok(new SyncResponse("Sync started in background", "PENDING"));
     }
 }

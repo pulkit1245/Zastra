@@ -23,6 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,6 +41,9 @@ public class ActivityService {
 
     // Defines the cooldown period before refreshing scraper API
     private static final int CACHE_DURATION_MINUTES = 15;
+
+    // Per-user lock: prevents concurrent syncAll runs for the same user
+    private final ConcurrentHashMap<UUID, AtomicBoolean> syncLocks = new ConcurrentHashMap<>();
 
     @Transactional
     public GlobalStatsResponse getGlobalStats(UUID userId) {
@@ -410,19 +416,72 @@ public class ActivityService {
         return ChronoUnit.MINUTES.between(lastUpdated, Instant.now()) <= CACHE_DURATION_MINUTES;
     }
 
+    /**
+     * Clears only the JSON payload columns so the next get* call is forced
+     * to re-scrape, WITHOUT touching updatedAt.  This avoids the race where
+     * concurrent threads see a stale timestamp and each start their own sync.
+     */
     @Transactional
-    public void syncAll(UUID userId) {
+    public void clearCachePayloads(UUID userId) {
         User user = userRepository.findById(userId).orElseThrow();
         CachedActivityData cache = getOrCreateCache(user);
-
-        // Invalidate cache by setting updatedAt to yesterday
-        cache.setUpdatedAt(Instant.now().minus(1, ChronoUnit.DAYS));
+        cache.setGlobalStatsJson(null);
+        cache.setGithubStatsJson(null);
+        cache.setContestStatsJson(null);
+        cache.setHeatmapJson(null);
+        // Set updatedAt old enough to force re-fetch
+        cache.setUpdatedAt(Instant.now().minus(CACHE_DURATION_MINUTES + 1, ChronoUnit.MINUTES));
         cacheRepository.save(cache);
+    }
 
-        // Call fetchers - since cache is now "invalid", these will hit the scrapers
-        getHeatmap(userId);
-        getGithubStats(userId);
-        getContestStats(userId);
-        getGlobalStats(userId); // must be last — uses heatmap for active days
+    /**
+     * Scrapes all platforms and writes fresh data to cache.
+     * Uses a per-user AtomicBoolean lock so only ONE sync runs at a time —
+     * any concurrent call is silently dropped (the in-flight sync will finish
+     * and populate the cache for all waiters).
+     */
+    public void syncAll(UUID userId) {
+        // Acquire per-user lock — drop duplicates immediately
+        AtomicBoolean lock = syncLocks.computeIfAbsent(userId, k -> new AtomicBoolean(false));
+        if (!lock.compareAndSet(false, true)) {
+            System.out.println("[syncAll] already running for userId=" + userId + " — skipped");
+            return;
+        }
+
+        try {
+            System.out.println("[syncAll] starting for userId=" + userId);
+
+            // Clear JSON fields so get* calls re-scrape instead of returning stale cache
+            clearCachePayloads(userId);
+
+            // Step 1 — heatmap, github, contest IN PARALLEL
+            CompletableFuture<Void> heatmapFuture = CompletableFuture.runAsync(() -> {
+                try { getHeatmap(userId); } catch (Exception e) {
+                    System.err.println("[syncAll] heatmap failed: " + e.getMessage());
+                }
+            });
+            CompletableFuture<Void> githubFuture = CompletableFuture.runAsync(() -> {
+                try { getGithubStats(userId); } catch (Exception e) {
+                    System.err.println("[syncAll] github failed: " + e.getMessage());
+                }
+            });
+            CompletableFuture<Void> contestFuture = CompletableFuture.runAsync(() -> {
+                try { getContestStats(userId); } catch (Exception e) {
+                    System.err.println("[syncAll] contest failed: " + e.getMessage());
+                }
+            });
+
+            // Step 2 — Wait for parallel tasks
+            CompletableFuture.allOf(heatmapFuture, githubFuture, contestFuture).join();
+
+            // Step 3 — globalStats reads from heatmap cache for activeDays; run last
+            try { getGlobalStats(userId); } catch (Exception e) {
+                System.err.println("[syncAll] globalStats failed: " + e.getMessage());
+            }
+
+            System.out.println("[syncAll] completed for userId=" + userId);
+        } finally {
+            lock.set(false);
+        }
     }
 }

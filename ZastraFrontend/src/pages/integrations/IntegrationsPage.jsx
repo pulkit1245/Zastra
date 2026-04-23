@@ -4,6 +4,7 @@ import {
 } from 'lucide-react';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import EmptyState from '../../components/EmptyState';
+import SyncProgressPanel from '../../components/SyncProgressPanel';
 import { useApi } from '../../hooks/useApi';
 import { integrationService } from '../../services/integrationService';
 import { formatDateTime, capitalize } from '../../utils/formatters';
@@ -28,6 +29,7 @@ export default function IntegrationsPage() {
   const integrations = useApi(integrationService.getStatuses);
   const [syncingPlatform, setSyncingPlatform] = useState(null);
   const [syncingAll, setSyncingAll] = useState(false);
+  const [showProgress, setShowProgress] = useState(false);
   const [syncModals, setSyncModals] = useState({});
 
   useEffect(() => {
@@ -66,36 +68,38 @@ export default function IntegrationsPage() {
   const handleSyncAll = async () => {
     setSyncingAll(true);
     try {
-      // First, sync each platform that has a username filled in the inputs
+      // Save all usernames in parallel first
       const platformsToSync = (integrations.data || []).map((p) => p.platform);
-      const perPlatformPromises = platformsToSync.map(async (platform) => {
-        const username = (syncModals[platform] || '').trim();
-        if (!username) return { platform, skipped: true };
-        try {
-          await integrationService.syncPlatform(platform, { username });
-          return { platform, ok: true };
-        } catch (e) {
-          return { platform, ok: false, error: e };
-        }
-      });
+      await Promise.all(
+        platformsToSync.map(async (platform) => {
+          const username = (syncModals[platform] || '').trim();
+          if (!username) return;
+          try {
+            await integrationService.syncPlatform(platform, { username });
+          } catch (e) {
+            // non-fatal; continue
+          }
+        })
+      );
 
-      await Promise.all(perPlatformPromises);
+      // Fire backend sync-all (now returns PENDING immediately)
+      await integrationService.syncAll();
 
-      // Then call backend sync-all to fetch data from scrapers and populate caches
-      const res = await integrationService.syncAll();
-      toast.success(res.data?.message || 'All platforms synced!');
+      // Show the live progress panel which polls all APIs
+      setShowProgress(true);
       integrations.execute();
-      // Notify other pages (dashboard/activity) to refresh their data
-      try {
-        window.dispatchEvent(new Event('activity-updated'));
-      } catch (e) {
-        // ignore in non-browser environments
-      }
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Failed to sync all platforms');
-    } finally {
+      toast.error(err.response?.data?.message || 'Failed to start sync');
       setSyncingAll(false);
     }
+  };
+
+  const handleSyncComplete = (results) => {
+    setSyncingAll(false);
+    toast.success('All data synced successfully! 🎉');
+    // Notify dashboard to refresh
+    window.dispatchEvent(new Event('activity-updated'));
+    integrations.execute();
   };
 
   if (integrations.loading && !integrations.data) return <LoadingSpinner text="Loading integrations…" />;
@@ -119,6 +123,23 @@ export default function IntegrationsPage() {
           {syncingAll ? 'Syncing…' : 'Sync All'}
         </button>
       </div>
+
+      {/* Sync hint banner when syncing */}
+      {syncingAll && (
+        <div className="glass-card p-4 border border-primary-500/20 bg-primary-500/5">
+          <div className="flex items-center gap-3">
+            <RefreshCw className="w-4 h-4 text-primary-500 animate-spin flex-shrink-0" />
+            <div>
+              <p className="text-sm font-semibold text-surface-900 dark:text-surface-100">
+                Fetching your data from all platforms…
+              </p>
+              <p className="text-xs text-surface-500 dark:text-surface-400 mt-0.5">
+                Check the progress panel in the bottom-right corner.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {list.length === 0 ? (
         <EmptyState
@@ -182,6 +203,14 @@ export default function IntegrationsPage() {
             );
           })}
         </div>
+      )}
+
+      {/* Floating progress panel */}
+      {showProgress && (
+        <SyncProgressPanel
+          onComplete={handleSyncComplete}
+          onDismiss={() => setShowProgress(false)}
+        />
       )}
     </div>
   );

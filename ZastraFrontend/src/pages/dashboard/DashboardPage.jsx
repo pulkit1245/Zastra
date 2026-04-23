@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Code2, GitBranch, Trophy, Star, TrendingUp, Calendar,
-  FolderKanban, Link2, ArrowRight,
+  FolderKanban, Link2, ArrowRight, RefreshCw,
 } from 'lucide-react';
 import StatCard from '../../components/StatCard';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import SyncProgressPanel from '../../components/SyncProgressPanel';
 import { useApi } from '../../hooks/useApi';
 import { activityService } from '../../services/activityService';
 import { gamificationService } from '../../services/gamificationService';
@@ -18,6 +19,7 @@ export default function DashboardPage() {
   const gamification = useApi(gamificationService.getSummary);
   const projects = useApi(projectService.getProjects);
   const profile = useApi(profileService.getProfile);
+  const [syncing, setSyncing] = useState(false);
 
   useEffect(() => {
     globalStats.execute();
@@ -29,14 +31,18 @@ export default function DashboardPage() {
 
   // Listen for manual refresh events (e.g., after integrations sync)
   useEffect(() => {
-    const handler = () => {
-      globalStats.execute();
-      githubStats.execute();
-      gamification.execute();
-    };
+    const handler = () => setSyncing(true);
     window.addEventListener('activity-updated', handler);
     return () => window.removeEventListener('activity-updated', handler);
-  }, [globalStats, githubStats, gamification]);
+  }, []);
+
+  const handleSyncComplete = () => {
+    setSyncing(false);
+    // Refresh all stat cards now that data is ready
+    globalStats.execute();
+    githubStats.execute();
+    gamification.execute();
+  };
 
   const isLoading = globalStats.loading && !globalStats.data;
 
@@ -58,6 +64,21 @@ export default function DashboardPage() {
           Here's an overview of your developer journey.
         </p>
       </div>
+
+      {/* Syncing Banner */}
+      {syncing && !gs && (
+        <div className="glass-card p-4 border border-primary-500/20 bg-primary-500/5 flex items-center gap-3">
+          <RefreshCw className="w-4 h-4 text-primary-500 animate-spin flex-shrink-0" />
+          <div>
+            <p className="text-sm font-semibold text-surface-900 dark:text-surface-100">
+              Syncing your data in the background…
+            </p>
+            <p className="text-xs text-surface-500 dark:text-surface-400 mt-0.5">
+              Stats will update automatically once fetching completes.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* XP Banner */}
       {gm && (
@@ -177,6 +198,14 @@ export default function DashboardPage() {
           <ArrowRight className="w-5 h-5 text-surface-400 group-hover:text-accent-500 group-hover:translate-x-1 transition-all" />
         </Link>
       </div>
+
+      {/* Floating live progress panel when syncing from dashboard */}
+      {syncing && (
+        <SyncProgressPanel
+          onComplete={handleSyncComplete}
+          onDismiss={() => setSyncing(false)}
+        />
+      )}
     </div>
   );
 }
