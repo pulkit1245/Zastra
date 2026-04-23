@@ -1,0 +1,1901 @@
+﻿{
+    "hyperedges":  [
+
+                   ],
+    "output_tokens":  1,
+    "input_tokens":  2171,
+    "edges":  [
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java::PortfolioPublicResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Map"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java::ProfileResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java::ProjectResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ReadNotificationResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ReadNotificationResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ReadNotificationResponse.java::ReadNotificationResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/SyncResponse.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/SyncResponse.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/SyncResponse.java::SyncResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java::CachedActivityData"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.persistence."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.time.Instant"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java::GamificationProfile"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.persistence."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.time.Instant"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java::IntegrationStatus"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.persistence."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.time.Instant"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java::Notification"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.persistence."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.time.Instant"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java::Project"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.persistence."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.time.Instant"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.ArrayList"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java::User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.persistence."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.GrantedAuthority"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.authority.SimpleGrantedAuthority"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.userdetails.UserDetails"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.time.Instant"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Collection"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java::UserProfile"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.persistence."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.time.Instant"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.ArrayList"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java::CachedActivityDataRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.CachedActivityData"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.data.jpa.repository.JpaRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Optional"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java::GamificationRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.GamificationProfile"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.data.jpa.repository.JpaRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Optional"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java::IntegrationStatusRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.IntegrationStatus"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.data.jpa.repository.JpaRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Optional"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java::NotificationRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.Notification"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.data.jpa.repository.JpaRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java::ProjectRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.Project"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.data.jpa.repository.JpaRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java::UserProfileRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.UserProfile"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.data.jpa.repository.JpaRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Optional"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java::UserRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:com.pulkit.ZastraBackend.entity.User"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.data.jpa.repository.JpaRepository"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Optional"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.UUID"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java::JwtAuthFilter"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.servlet.FilterChain"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.servlet.ServletException"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.servlet.http.HttpServletRequest"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:jakarta.servlet.http.HttpServletResponse"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok.RequiredArgsConstructor"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.lang.NonNull"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.authentication.UsernamePasswordAuthenticationToken"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.context.SecurityContextHolder"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.userdetails.UserDetails"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.userdetails.UserDetailsService"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.web.authentication.WebAuthenticationDetailsSource"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.stereotype.Component"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.web.filter.OncePerRequestFilter"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.io.IOException"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java::JwtService"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:io.jsonwebtoken.Claims"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:io.jsonwebtoken.Jwts"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:io.jsonwebtoken.security.Keys"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.beans.factory.annotation.Value"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.userdetails.UserDetails"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.stereotype.Service"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:javax.crypto.SecretKey"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.nio.charset.StandardCharsets"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.Date"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.function.Function"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.9,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  1,
+                      "type":  "contains",
+                      "target":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java::SecurityConfig"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:lombok.RequiredArgsConstructor"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.context.annotation.Bean"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.context.annotation.Configuration"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.http.HttpMethod"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.authentication.AuthenticationManager"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.authentication.AuthenticationProvider"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.authentication.dao.DaoAuthenticationProvider"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.config.annotation.web.builders.HttpSecurity"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.config.http.SessionCreationPolicy"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.core.userdetails.UserDetailsService"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.crypto.password.PasswordEncoder"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.web.SecurityFilterChain"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter"
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:org.springframework.web.cors."
+                  },
+                  {
+                      "confidence":  "EXTRACTED",
+                      "source":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "confidence_score":  0.85,
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "weight":  0.8,
+                      "type":  "depends_on",
+                      "target":  "module:java.util.List"
+                  }
+              ],
+    "nodes":  [
+                  {
+                      "label":  "com.pulkit.ZastraBackend.entity.GamificationProfile",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "id":  "module:com.pulkit.ZastraBackend.entity.GamificationProfile",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "com.pulkit.ZastraBackend.entity.CachedActivityData",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "id":  "module:com.pulkit.ZastraBackend.entity.CachedActivityData",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "NotificationRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java::NotificationRepository",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "JwtAuthFilter",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java::JwtAuthFilter",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ProjectResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java::ProjectResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "org.springframework.web.cors.",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.web.cors.",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.core.authority.SimpleGrantedAuthority",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "id":  "module:org.springframework.security.core.authority.SimpleGrantedAuthority",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.lang.NonNull",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:org.springframework.lang.NonNull",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "SecurityConfig",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java::SecurityConfig",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "UserProfile",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java::UserProfile",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "jakarta.servlet.ServletException",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:jakarta.servlet.ServletException",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "com.pulkit.ZastraBackend.entity.Project",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "id":  "module:com.pulkit.ZastraBackend.entity.Project",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.context.annotation.Bean",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.context.annotation.Bean",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "com.pulkit.ZastraBackend.entity.Notification",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "id":  "module:com.pulkit.ZastraBackend.entity.Notification",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "UserProfile.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/UserProfile.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "org.springframework.security.authentication.UsernamePasswordAuthenticationToken",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:org.springframework.security.authentication.UsernamePasswordAuthenticationToken",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "CachedActivityDataRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java::CachedActivityDataRepository",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ReadNotificationResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ReadNotificationResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ReadNotificationResponse.java::ReadNotificationResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "org.springframework.security.authentication.dao.DaoAuthenticationProvider",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.authentication.dao.DaoAuthenticationProvider",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "jakarta.servlet.FilterChain",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:jakarta.servlet.FilterChain",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "java.util.Optional",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "id":  "module:java.util.Optional",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.web.SecurityFilterChain",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.web.SecurityFilterChain",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "ReadNotificationResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ReadNotificationResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ReadNotificationResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "org.springframework.security.core.userdetails.UserDetails",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "id":  "module:org.springframework.security.core.userdetails.UserDetails",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "java.util.Collection",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "id":  "module:java.util.Collection",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "javax.crypto.SecretKey",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:javax.crypto.SecretKey",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "UserRepository.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "java.util.List",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "id":  "module:java.util.List",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "IntegrationStatus.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "JwtService",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java::JwtService",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ProjectResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProjectResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "GamificationProfile.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "lombok.",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "id":  "module:lombok.",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "ProjectRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java::ProjectRepository",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ProfileResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "SyncResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/SyncResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/SyncResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "lombok.RequiredArgsConstructor",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:lombok.RequiredArgsConstructor",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.stereotype.Service",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:org.springframework.stereotype.Service",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "io.jsonwebtoken.Claims",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:io.jsonwebtoken.Claims",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "CachedActivityData",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java::CachedActivityData",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "io.jsonwebtoken.Jwts",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:io.jsonwebtoken.Jwts",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "jakarta.persistence.",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "id":  "module:jakarta.persistence.",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "CachedActivityData.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "SyncResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/SyncResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/SyncResponse.java::SyncResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "java.time.Instant",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "id":  "module:java.time.Instant",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.stereotype.Component",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:org.springframework.stereotype.Component",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "UserProfileRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java::UserProfileRepository",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "jakarta.servlet.http.HttpServletResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:jakarta.servlet.http.HttpServletResponse",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "PortfolioPublicResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java::PortfolioPublicResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "Project",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java::Project",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "User",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java::User",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "org.springframework.security.authentication.AuthenticationProvider",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.authentication.AuthenticationProvider",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "java.util.UUID",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/CachedActivityData.java",
+                      "id":  "module:java.util.UUID",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "Notification.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "PortfolioPublicResponse.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "IntegrationStatusRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java::IntegrationStatusRepository",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ProjectRepository.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/ProjectRepository.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "jakarta.servlet.http.HttpServletRequest",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:jakarta.servlet.http.HttpServletRequest",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "JwtAuthFilter.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "java.nio.charset.StandardCharsets",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:java.nio.charset.StandardCharsets",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.core.userdetails.UserDetailsService",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:org.springframework.security.core.userdetails.UserDetailsService",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "java.util.Date",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:java.util.Date",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.core.GrantedAuthority",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "id":  "module:org.springframework.security.core.GrantedAuthority",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "UserRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserRepository.java::UserRepository",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "java.io.IOException",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:java.io.IOException",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "com.pulkit.ZastraBackend.entity.User",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "id":  "module:com.pulkit.ZastraBackend.entity.User",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "GamificationProfile",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/GamificationProfile.java::GamificationProfile",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "ProfileResponse",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/ProfileResponse.java::ProfileResponse",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "java.util.ArrayList",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "id":  "module:java.util.ArrayList",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.config.annotation.web.builders.HttpSecurity",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.config.annotation.web.builders.HttpSecurity",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "Project.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Project.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "org.springframework.data.jpa.repository.JpaRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "id":  "module:org.springframework.data.jpa.repository.JpaRepository",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "com.pulkit.ZastraBackend.entity.UserProfile",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "id":  "module:com.pulkit.ZastraBackend.entity.UserProfile",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "Notification",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/Notification.java::Notification",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "org.springframework.http.HttpMethod",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.http.HttpMethod",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.authentication.AuthenticationManager",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.authentication.AuthenticationManager",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "io.jsonwebtoken.security.Keys",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:io.jsonwebtoken.security.Keys",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.context.annotation.Configuration",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.context.annotation.Configuration",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.config.http.SessionCreationPolicy",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.config.http.SessionCreationPolicy",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.config.annotation.web.configuration.EnableWebSecurity",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.config.annotation.web.configuration.EnableWebSecurity",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.web.filter.OncePerRequestFilter",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:org.springframework.web.filter.OncePerRequestFilter",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "GamificationRepository",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java::GamificationRepository",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "org.springframework.security.crypto.password.PasswordEncoder",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.crypto.password.PasswordEncoder",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.web.authentication.WebAuthenticationDetailsSource",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:org.springframework.security.web.authentication.WebAuthenticationDetailsSource",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.beans.factory.annotation.Value",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:org.springframework.beans.factory.annotation.Value",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.core.context.SecurityContextHolder",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtAuthFilter.java",
+                      "id":  "module:org.springframework.security.core.context.SecurityContextHolder",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "User.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/User.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "java.util.Map",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/dto/response/PortfolioPublicResponse.java",
+                      "id":  "module:java.util.Map",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "SecurityConfig.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "CachedActivityDataRepository.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/CachedActivityDataRepository.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "NotificationRepository.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/NotificationRepository.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "IntegrationStatusRepository.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "java.util.function.Function",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "module:java.util.function.Function",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "GamificationRepository.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/GamificationRepository.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "UserProfileRepository.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/UserProfileRepository.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "IntegrationStatus",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java",
+                      "id":  "entity:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/entity/IntegrationStatus.java::IntegrationStatus",
+                      "type":  "concept"
+                  },
+                  {
+                      "label":  "JwtService.java",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "id":  "file:ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/JwtService.java",
+                      "type":  "file"
+                  },
+                  {
+                      "label":  "com.pulkit.ZastraBackend.entity.IntegrationStatus",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/repository/IntegrationStatusRepository.java",
+                      "id":  "module:com.pulkit.ZastraBackend.entity.IntegrationStatus",
+                      "type":  "module"
+                  },
+                  {
+                      "label":  "org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter",
+                      "source_file":  "ZastraBackend/src/main/java/com/pulkit/ZastraBackend/security/SecurityConfig.java",
+                      "id":  "module:org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter",
+                      "type":  "module"
+                  }
+              ]
+}
