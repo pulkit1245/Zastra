@@ -47,18 +47,27 @@ public class ActivityService {
 
     @Transactional
     public GlobalStatsResponse getGlobalStats(UUID userId) {
+        return getGlobalStats(userId, false);
+    }
+
+    @Transactional
+    public GlobalStatsResponse getGlobalStats(UUID userId, boolean forceScrape) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         CachedActivityData cache = getOrCreateCache(user);
 
         // Serve Cache if valid
-        if (cache.getGlobalStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
+        if (!forceScrape && cache.getGlobalStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
             try {
                 return objectMapper.readValue(cache.getGlobalStatsJson(), GlobalStatsResponse.class);
             } catch (Exception e) {
                 System.err.println("Failed to deserialize global cache, refreshing...");
             }
+        }
+
+        if (!forceScrape && isSyncRunning(userId)) {
+            return new GlobalStatsResponse(0, 0, new DifficultyBreakdown(0, 0, 0), new PlatformBreakdown(null, null, null, null));
         }
 
         List<IntegrationStatus> statuses = integrationRepository.findByUser(user);
@@ -172,14 +181,23 @@ public class ActivityService {
 
     @Transactional
     public GithubStatsResponse getGithubStats(UUID userId) {
+        return getGithubStats(userId, false);
+    }
+
+    @Transactional
+    public GithubStatsResponse getGithubStats(UUID userId, boolean forceScrape) {
         User user = userRepository.findById(userId).orElseThrow();
         CachedActivityData cache = getOrCreateCache(user);
 
-        if (cache.getGithubStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
+        if (!forceScrape && cache.getGithubStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
             try {
                 return objectMapper.readValue(cache.getGithubStatsJson(), GithubStatsResponse.class);
             } catch (Exception ignored) {
             }
+        }
+
+        if (!forceScrape && isSyncRunning(userId)) {
+            return new GithubStatsResponse(0, 0, 0, List.of());
         }
 
         IntegrationStatus ghStatus = integrationRepository.findByUserAndPlatform(user, "github").orElse(null);
@@ -209,14 +227,23 @@ public class ActivityService {
 
     @Transactional
     public ContestStatsResponse getContestStats(UUID userId) {
+        return getContestStats(userId, false);
+    }
+
+    @Transactional
+    public ContestStatsResponse getContestStats(UUID userId, boolean forceScrape) {
         User user = userRepository.findById(userId).orElseThrow();
         CachedActivityData cache = getOrCreateCache(user);
 
-        if (cache.getContestStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
+        if (!forceScrape && cache.getContestStatsJson() != null && isCacheValid(cache.getUpdatedAt())) {
             try {
                 return objectMapper.readValue(cache.getContestStatsJson(), ContestStatsResponse.class);
             } catch (Exception ignored) {
             }
+        }
+
+        if (!forceScrape && isSyncRunning(userId)) {
+            return new ContestStatsResponse(0, new ContestRatings(null, null), List.of());
         }
 
         IntegrationStatus lcStatus = integrationRepository.findByUserAndPlatform(user, "leetcode").orElse(null);
@@ -268,14 +295,23 @@ public class ActivityService {
 
     @Transactional
     public List<HeatmapEntry> getHeatmap(UUID userId) {
+        return getHeatmap(userId, false);
+    }
+
+    @Transactional
+    public List<HeatmapEntry> getHeatmap(UUID userId, boolean forceScrape) {
         User user = userRepository.findById(userId).orElseThrow();
         CachedActivityData cache = getOrCreateCache(user);
 
-        if (cache.getHeatmapJson() != null && isCacheValid(cache.getUpdatedAt())) {
+        if (!forceScrape && cache.getHeatmapJson() != null && isCacheValid(cache.getUpdatedAt())) {
             try {
                 return objectMapper.readValue(cache.getHeatmapJson(), new TypeReference<List<HeatmapEntry>>() {});
             } catch (Exception ignored) {
             }
+        }
+
+        if (!forceScrape && isSyncRunning(userId)) {
+            return List.of();
         }
 
         Map<String, Integer> combinedHeatmap = new HashMap<>();
@@ -416,10 +452,15 @@ public class ActivityService {
         return ChronoUnit.MINUTES.between(lastUpdated, Instant.now()) <= CACHE_DURATION_MINUTES;
     }
 
+    public boolean isSyncRunning(UUID userId) {
+        AtomicBoolean lock = syncLocks.get(userId);
+        return lock != null && lock.get();
+    }
+
     /**
      * Clears only the JSON payload columns so the next get* call is forced
-     * to re-scrape, WITHOUT touching updatedAt.  This avoids the race where
-     * concurrent threads see a stale timestamp and each start their own sync.
+     * to re-scrape. We do NOT touch updatedAt here so we don't accidentally
+     * make the cache look stale to other endpoints.
      */
     @Transactional
     public void clearCachePayloads(UUID userId) {
@@ -429,8 +470,6 @@ public class ActivityService {
         cache.setGithubStatsJson(null);
         cache.setContestStatsJson(null);
         cache.setHeatmapJson(null);
-        // Set updatedAt old enough to force re-fetch
-        cache.setUpdatedAt(Instant.now().minus(CACHE_DURATION_MINUTES + 1, ChronoUnit.MINUTES));
         cacheRepository.save(cache);
     }
 
@@ -456,17 +495,17 @@ public class ActivityService {
 
             // Step 1 — heatmap, github, contest IN PARALLEL
             CompletableFuture<Void> heatmapFuture = CompletableFuture.runAsync(() -> {
-                try { getHeatmap(userId); } catch (Exception e) {
+                try { getHeatmap(userId, true); } catch (Exception e) {
                     System.err.println("[syncAll] heatmap failed: " + e.getMessage());
                 }
             });
             CompletableFuture<Void> githubFuture = CompletableFuture.runAsync(() -> {
-                try { getGithubStats(userId); } catch (Exception e) {
+                try { getGithubStats(userId, true); } catch (Exception e) {
                     System.err.println("[syncAll] github failed: " + e.getMessage());
                 }
             });
             CompletableFuture<Void> contestFuture = CompletableFuture.runAsync(() -> {
-                try { getContestStats(userId); } catch (Exception e) {
+                try { getContestStats(userId, true); } catch (Exception e) {
                     System.err.println("[syncAll] contest failed: " + e.getMessage());
                 }
             });
@@ -475,13 +514,24 @@ public class ActivityService {
             CompletableFuture.allOf(heatmapFuture, githubFuture, contestFuture).join();
 
             // Step 3 — globalStats reads from heatmap cache for activeDays; run last
-            try { getGlobalStats(userId); } catch (Exception e) {
+            try { getGlobalStats(userId, true); } catch (Exception e) {
                 System.err.println("[syncAll] globalStats failed: " + e.getMessage());
             }
+
+            // Mark cache as fully fresh
+            updateCacheTimestamp(userId);
 
             System.out.println("[syncAll] completed for userId=" + userId);
         } finally {
             lock.set(false);
         }
+    }
+
+    @Transactional
+    protected void updateCacheTimestamp(UUID userId) {
+        User user = userRepository.findById(userId).orElseThrow();
+        CachedActivityData cache = getOrCreateCache(user);
+        cache.setUpdatedAt(Instant.now());
+        cacheRepository.save(cache);
     }
 }

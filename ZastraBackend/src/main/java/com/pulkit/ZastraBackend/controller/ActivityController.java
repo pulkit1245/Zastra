@@ -24,22 +24,34 @@ public class ActivityController {
 
     @GetMapping("/global")
     public ResponseEntity<GlobalStatsResponse> getGlobalStats(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(activityService.getGlobalStats(user.getId()));
+        String status = activityService.isSyncRunning(user.getId()) ? "RUNNING" : "COMPLETED";
+        return ResponseEntity.ok()
+                .header("X-Sync-Status", status)
+                .body(activityService.getGlobalStats(user.getId()));
     }
 
     @GetMapping("/github")
     public ResponseEntity<GithubStatsResponse> getGithubStats(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(activityService.getGithubStats(user.getId()));
+        String status = activityService.isSyncRunning(user.getId()) ? "RUNNING" : "COMPLETED";
+        return ResponseEntity.ok()
+                .header("X-Sync-Status", status)
+                .body(activityService.getGithubStats(user.getId()));
     }
 
     @GetMapping("/contest")
     public ResponseEntity<ContestStatsResponse> getContestStats(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(activityService.getContestStats(user.getId()));
+        String status = activityService.isSyncRunning(user.getId()) ? "RUNNING" : "COMPLETED";
+        return ResponseEntity.ok()
+                .header("X-Sync-Status", status)
+                .body(activityService.getContestStats(user.getId()));
     }
 
     @GetMapping("/heatmap")
     public ResponseEntity<List<HeatmapEntry>> getHeatmap(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(activityService.getHeatmap(user.getId()));
+        String status = activityService.isSyncRunning(user.getId()) ? "RUNNING" : "COMPLETED";
+        return ResponseEntity.ok()
+                .header("X-Sync-Status", status)
+                .body(activityService.getHeatmap(user.getId()));
     }
 }
 

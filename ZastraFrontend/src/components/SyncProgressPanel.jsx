@@ -62,8 +62,9 @@ export default function SyncProgressPanel({ onComplete, onDismiss }) {
       try {
         const res  = await step.fn();
         const data = res?.data ?? res;
+        const syncStatus = res?.headers?.['x-sync-status'];
 
-        if (hasRealData(step.key, data)) {
+        if (syncStatus === 'COMPLETED' || hasRealData(step.key, data)) {
           results.current[step.key] = data;
           mark(idx, { status: S.done, elapsed: ((Date.now() - t0) / 1000).toFixed(1), attempts: attempt });
           return;
