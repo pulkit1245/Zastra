@@ -37,6 +37,7 @@ services:
   - type: web
     name: zastra-backend
     env: docker
+    plan: free
     dockerfilePath: ZastraBackend/Dockerfile
     dockerContext: ZastraBackend
     healthCheckPath: /actuator/health
@@ -87,6 +88,7 @@ services:
   - type: web
     name: zastra-python-api
     env: docker
+    plan: free
     dockerfilePath: ZastraBackend/APIS/Dockerfile
     dockerContext: ZastraBackend/APIS
     healthCheckPath: /
