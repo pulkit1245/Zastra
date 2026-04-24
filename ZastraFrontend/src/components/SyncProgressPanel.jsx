@@ -45,6 +45,7 @@ export default function SyncProgressPanel({ onComplete, onDismiss }) {
   );
   const [allDone, setAllDone]   = useState(false);
   const startTime = useRef(Date.now());
+  const endTime   = useRef(null);
   const results   = useRef({});
   const cancelled = useRef(false);
 
@@ -87,13 +88,15 @@ export default function SyncProgressPanel({ onComplete, onDismiss }) {
 
     Promise.all(STEPS.map((_, i) => pollStep(i))).then(() => {
       if (!cancelled.current) {
+        endTime.current = Date.now();
         setAllDone(true);
         onComplete?.(results.current);
       }
     });
 
     return () => { cancelled.current = true; };
-  }, [pollStep, onComplete]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const doneCount   = steps.filter((s) => s.status === S.done || s.status === S.error).length;
   const progressPct = Math.round((doneCount / STEPS.length) * 100);
@@ -168,8 +171,8 @@ export default function SyncProgressPanel({ onComplete, onDismiss }) {
 
         {/* Footer */}
         <p className="mt-3 pt-3 border-t border-surface-200/50 dark:border-surface-700/50 text-xs text-surface-400 text-center">
-          {allDone
-            ? `Completed in ${((Date.now() - startTime.current) / 1000).toFixed(1)}s`
+          {allDone && endTime.current
+            ? `Completed in ${((endTime.current - startTime.current) / 1000).toFixed(1)}s`
             : 'Polling every 4s · scraper is fetching live data'}
         </p>
       </div>

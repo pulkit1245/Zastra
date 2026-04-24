@@ -95,6 +95,7 @@
 package com.pulkit.ZastraBackend.security;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -113,6 +114,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -122,6 +124,14 @@ public class SecurityConfig {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
+
+    /**
+     * Comma-separated list of allowed CORS origins.
+     * Local dev fallback: localhost on common Vite ports.
+     * Render prod: set ALLOWED_ORIGINS=https://zastra-frontend.onrender.com
+     */
+    @Value("${ALLOWED_ORIGINS:http://localhost:5173,http://localhost:5174,http://localhost:5175}")
+    private String allowedOrigins;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -189,13 +199,18 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 
-    // 🌐 CORS configuration (MAIN FIX)
+    // 🌐 CORS configuration — origins driven by ALLOWED_ORIGINS env var
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:5174", "http://localhost:5175")); // frontend
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        // Parse comma-separated origins from environment variable
+        // Local dev: falls back to localhost:5173/5174/5175
+        // Render prod: ALLOWED_ORIGINS=https://zastra-frontend.onrender.com
+        List<String> origins = Arrays.asList(allowedOrigins.split(","));
+        config.setAllowedOrigins(origins);
+
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("X-Sync-Status"));
         config.setAllowCredentials(true);

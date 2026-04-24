@@ -1,0 +1,128 @@
+##############################################################################
+#  Zastra — GitHub Actions CI Pipeline
+#
+#  Triggers: push to any branch + pull requests targeting main
+#
+#  Jobs (run in parallel, path-filtered):
+#    • ci-frontend  — install deps + production Vite build
+#    • ci-backend   — Java 21 + Gradle build (tests optional)
+#    • ci-python    — pip install + syntax check
+#
+#  NOTE: Deployment (CD) is handled natively by Render's GitHub integration.
+#  On merge to main, Render auto-rebuilds and redeploys all services.
+##############################################################################
+
+name: CI
+
+on:
+  push:
+    branches: ["**"]          # run on every branch push
+  pull_request:
+    branches: [main]          # gate PRs to main
+
+# Cancel in-progress runs for the same branch to save CI minutes
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ──────────────────────────────────────────────────────────────────────────
+  # JOB 1: Frontend — React + Vite
+  # Only runs when files under ZastraFrontend/ change.
+  # ──────────────────────────────────────────────────────────────────────────
+  ci-frontend:
+    name: "Frontend — Build & Lint"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ZastraFrontend
+
+    # Path filter — skip this job if nothing in ZastraFrontend changed
+    # (except on main/PRs where we always want a full check)
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: ZastraFrontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build (Vite production bundle)
+        # Pass a dummy VITE_API_URL so the build doesn't fail on missing env
+        env:
+          VITE_API_URL: https://placeholder.example.com
+        run: npm run build
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # JOB 2: Java Backend — Spring Boot (Gradle)
+  # Only runs when files under ZastraBackend/ change (excluding APIS/).
+  # ──────────────────────────────────────────────────────────────────────────
+  ci-backend:
+    name: "Backend — Gradle Build"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ZastraBackend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
+          cache: "gradle"
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Build JAR (skip tests — no DB available in CI)
+        run: ./gradlew clean build -x test --no-daemon
+
+      # Uncomment the block below once integration tests are added:
+      # - name: Run unit tests
+      #   run: ./gradlew test --no-daemon
+      # - name: Upload test report
+      #   if: always()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: backend-test-report
+      #     path: ZastraBackend/build/reports/tests/test/
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # JOB 3: Python Scraper — FastAPI
+  # ──────────────────────────────────────────────────────────────────────────
+  ci-python:
+    name: "Python Scraper — Install & Syntax Check"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ZastraBackend/APIS
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: ZastraBackend/APIS/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Syntax check (py_compile)
+        run: python -m py_compile main.py && echo "✅ Syntax OK"

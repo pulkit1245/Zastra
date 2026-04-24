@@ -31,6 +31,32 @@ export default function IntegrationsPage() {
   const [syncingAll, setSyncingAll] = useState(false);
   const [showProgress, setShowProgress] = useState(false);
   const [syncModals, setSyncModals] = useState({});
+  const [cooldown, setCooldown] = useState(0);
+  const [syncId, setSyncId] = useState(0);
+
+  // Initialize and manage cooldown timer
+  useEffect(() => {
+    const checkCooldown = () => {
+      const userId = localStorage.getItem('zastra_user_id') || 'anonymous';
+      const lastSyncStr = localStorage.getItem(`zastra_last_sync_${userId}`);
+      if (lastSyncStr) {
+        const lastSync = parseInt(lastSyncStr, 10);
+        const diffSeconds = Math.floor((Date.now() - lastSync) / 1000);
+        const COOLDOWN_SECONDS = 10 * 60; // 10 minutes
+        if (diffSeconds < COOLDOWN_SECONDS) {
+          setCooldown(COOLDOWN_SECONDS - diffSeconds);
+        } else {
+          setCooldown(0);
+        }
+      } else {
+        setCooldown(0);
+      }
+    };
+    
+    checkCooldown();
+    const interval = setInterval(checkCooldown, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     integrations.execute();
@@ -86,6 +112,7 @@ export default function IntegrationsPage() {
       await integrationService.syncAll();
 
       // Show the live progress panel which polls all APIs
+      setSyncId(Date.now());
       setShowProgress(true);
       integrations.execute();
     } catch (err) {
@@ -97,6 +124,12 @@ export default function IntegrationsPage() {
   const handleSyncComplete = (results) => {
     setSyncingAll(false);
     toast.success('All data synced successfully! 🎉');
+    
+    // Start 10 minute cooldown for this specific user
+    const userId = localStorage.getItem('zastra_user_id') || 'anonymous';
+    localStorage.setItem(`zastra_last_sync_${userId}`, Date.now().toString());
+    setCooldown(10 * 60);
+
     // Notify dashboard to refresh
     window.dispatchEvent(new Event('activity-updated'));
     integrations.execute();
@@ -105,6 +138,12 @@ export default function IntegrationsPage() {
   if (integrations.loading && !integrations.data) return <LoadingSpinner text="Loading integrations…" />;
 
   const list = integrations.data || [];
+
+  const formatCooldown = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}:${s.toString().padStart(2, '0')}`;
+  };
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -116,11 +155,17 @@ export default function IntegrationsPage() {
         </div>
         <button
           onClick={handleSyncAll}
-          disabled={syncingAll}
+          disabled={syncingAll || cooldown > 0}
           className="btn-primary"
         >
-          <RefreshCw className={`w-4 h-4 ${syncingAll ? 'animate-spin' : ''}`} />
-          {syncingAll ? 'Syncing…' : 'Sync All'}
+          {syncingAll ? (
+            <RefreshCw className="w-4 h-4 animate-spin" />
+          ) : cooldown > 0 ? (
+            <Clock className="w-4 h-4" />
+          ) : (
+            <RefreshCw className="w-4 h-4" />
+          )}
+          {syncingAll ? 'Syncing…' : cooldown > 0 ? `Sync Again in ${formatCooldown(cooldown)}` : 'Sync All'}
         </button>
       </div>
 
@@ -208,6 +253,7 @@ export default function IntegrationsPage() {
       {/* Floating progress panel */}
       {showProgress && (
         <SyncProgressPanel
+          key={syncId} // remounts cleanly on every new sync
           onComplete={handleSyncComplete}
           onDismiss={() => setShowProgress(false)}
         />

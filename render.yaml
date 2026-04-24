@@ -1,0 +1,118 @@
+##############################################################################
+#  Zastra – Render.com Infrastructure Blueprint
+#  https://render.com/docs/blueprint-spec
+#
+#  HOW TO USE:
+#  1. Push this file to your GitHub repo root.
+#  2. In Render dashboard → New → Blueprint → connect your GitHub repo.
+#  3. Render reads this file and provisions every service automatically.
+#  4. After first deploy, set the "sync: false" secrets in the Render dashboard.
+##############################################################################
+
+services:
+  # ──────────────────────────────────────────────────────────────────────────
+  # 1. FRONTEND — React + Vite (Render Static Site)
+  #    Render builds the Vite app and serves it from a global CDN.
+  #    No Dockerfile needed — Render handles it natively.
+  # ──────────────────────────────────────────────────────────────────────────
+  - type: web
+    name: zastra-frontend
+    env: static
+    buildCommand: cd ZastraFrontend && npm ci && npm run build
+    staticPublishPath: ZastraFrontend/dist
+    # Redirect all paths to index.html so React Router works correctly
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # The public URL of the Java backend — set after backend is first deployed.
+      # Format: https://zastra-backend.onrender.com
+      - key: VITE_API_URL
+        sync: false
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # 2. JAVA BACKEND — Spring Boot (Docker Web Service)
+  # ──────────────────────────────────────────────────────────────────────────
+  - type: web
+    name: zastra-backend
+    env: docker
+    dockerfilePath: ZastraBackend/Dockerfile
+    dockerContext: ZastraBackend
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+
+      # JWT — set a strong 64-char random secret in Render dashboard
+      - key: JWT_SECRET
+        sync: false
+
+      # PostgreSQL — injected automatically from Render managed DB
+      - key: DATABASE_URL
+        fromDatabase:
+          name: zastra-db
+          property: connectionString
+
+      # Redis — auto-injected from the Redis service below
+      - key: REDIS_URL
+        fromService:
+          name: zastra-redis
+          type: redis
+          property: connectionString
+
+      # Upstash Kafka — get these from https://console.upstash.com/kafka
+      - key: KAFKA_BOOTSTRAP_SERVERS
+        sync: false
+      - key: KAFKA_API_KEY
+        sync: false
+      - key: KAFKA_API_SECRET
+        sync: false
+
+      # Internal URL of the Python scraper service — auto-resolved by Render
+      - key: PYTHON_API_BASE_URL
+        fromService:
+          name: zastra-python-api
+          type: web
+          property: url
+
+      # CORS allowed origins — set to your frontend Render URL
+      # Format: https://zastra-frontend.onrender.com
+      - key: ALLOWED_ORIGINS
+        sync: false
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # 3. PYTHON SCRAPER — FastAPI (Docker Web Service)
+  # ──────────────────────────────────────────────────────────────────────────
+  - type: web
+    name: zastra-python-api
+    env: docker
+    dockerfilePath: ZastraBackend/APIS/Dockerfile
+    dockerContext: ZastraBackend/APIS
+    healthCheckPath: /
+    envVars:
+      # GitHub Personal Access Token for scraping GitHub API
+      - key: GITHUB_TOKEN
+        sync: false
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # 4. REDIS — Managed Redis Service
+  #    NOTE: In Render's blueprint spec, Redis is a "service" (type: redis),
+  #    NOT a database. It must live inside `services:` so other services can
+  #    reference it via `fromService`. Render treats Redis differently from PG.
+  # ──────────────────────────────────────────────────────────────────────────
+  - type: redis
+    name: zastra-redis
+    plan: free
+    region: oregon  # must match your other services
+
+# ──────────────────────────────────────────────────────────────────────────
+# MANAGED DATABASES (PostgreSQL only)
+# ──────────────────────────────────────────────────────────────────────────
+databases:
+  # PostgreSQL — Render free tier (750 hours/month, expires after 90 days)
+  - name: zastra-db
+    databaseName: devforge
+    user: postgres
+    plan: free
+    region: oregon  # must match your web services region

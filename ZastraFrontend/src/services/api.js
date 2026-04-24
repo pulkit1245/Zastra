@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+/**
+ * Base URL resolution:
+ *  - Local dev:  http://localhost:8080  (Vite proxy also handles /api/* → 8080)
+ *  - Render prod: set VITE_API_URL=https://zastra-backend.onrender.com
+ *                 in the Render Static Site environment variables.
+ */
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080',
   headers: {
     'Content-Type': 'application/json',
   },

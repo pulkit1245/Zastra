@@ -39,13 +39,16 @@ public class IntegrationController {
 
         // Prefer JSON body, fall back to query param if provided
         String provided = null;
-        if (request != null) provided = request.username();
-        if ((provided == null || provided.isBlank()) && username != null && !username.isBlank()) provided = username;
+        if (request != null)
+            provided = request.username();
+        if ((provided == null || provided.isBlank()) && username != null && !username.isBlank())
+            provided = username;
 
         if (provided == null || provided.isBlank()) {
             return ResponseEntity.badRequest().body(new SyncResponse("username is required", "ERROR"));
         }
-        System.out.println("[IntegrationController] sync request for platform=" + platform + " username=" + provided + " userId=" + user.getId());
+        System.out.println("[IntegrationController] sync request for platform=" + platform + " username=" + provided
+                + " userId=" + user.getId());
 
         // 1. Save the username immediately (fast DB write)
         SyncResponse resp = integrationService.syncPlatform(user.getId(), platform, provided);
